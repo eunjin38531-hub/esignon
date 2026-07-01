@@ -1,89 +1,91 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>프랜차이즈·가맹점 계약 | eSignon</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Noto Sans KR', sans-serif; color: #191F28; background: #fff; }
-.nav { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid #E5E8EB; height: 88px; display: flex; align-items: center; padding: 0 40px; justify-content: space-between; }
-.nav-logo { font-size: 22px; font-weight: 700; color: #0088FF; text-decoration: none; }
-.nav-links { display: flex; gap: 28px; list-style: none; }
-.nav-links a { text-decoration: none; color: #191F28; font-size: 15px; }
-.nav-actions { display: flex; gap: 12px; }
-.btn-dark { padding: 10px 20px; border-radius: 8px; background: #191F28; color: #fff; font-size: 14px; font-weight: 700; text-decoration: none; }
-.btn-blue { padding: 10px 20px; border-radius: 8px; background: #0088FF; color: #fff; font-size: 14px; font-weight: 700; text-decoration: none; }
-.back-link { display: block; color: #0088FF; font-size: 14px; font-weight: 600; text-decoration: none; padding: 20px 40px 0; }
-.hero { background: linear-gradient(180deg, #EAF4FF 0%, #fff 100%); text-align: center; padding: 100px 40px 80px; }
-.hero h1 { font-size: 52px; font-weight: 700; line-height: 1.25; color: #191F28; margin-bottom: 20px; }
-.hero p { font-size: 18px; line-height: 1.7; color: #3D4A5C; margin-bottom: 32px; }
-.btn-cta-hero { display: inline-block; padding: 14px 32px; background: #0088FF; color: #fff; border-radius: 12px; font-size: 16px; font-weight: 700; text-decoration: none; }
-.btn-cta-hero:hover { background: #0076E6; }
-.section { max-width: 1160px; margin: 0 auto; padding: 80px 40px; }
-.section-title { font-size: 36px; font-weight: 700; text-align: center; margin-bottom: 48px; line-height: 1.35; }
-.section-subtitle { font-size: 17px; color: #3D4A5C; text-align: center; margin-top: -30px; margin-bottom: 48px; line-height: 1.7; }
-.problem-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.problem-card { background: #F9FAFB; border-radius: 16px; padding: 28px 24px; }
-.problem-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; color: #191F28; }
-.problem-card p { font-size: 15px; color: #64748B; line-height: 1.6; }
-.feature-section { background: #F9FAFB; }
-.feature-inner { max-width: 1160px; margin: 0 auto; padding: 80px 40px; }
-.feature-row { display: flex; align-items: center; gap: 60px; margin-bottom: 60px; }
-.feature-row:last-child { margin-bottom: 0; }
-.feature-row.reverse { flex-direction: row-reverse; }
-.feature-img { flex-shrink: 0; width: 360px; height: 300px; border-radius: 24px; background: #EAF4FF; display: flex; align-items: center; justify-content: center; font-size: 80px; }
-.feature-text h3 { font-size: 28px; font-weight: 700; margin-bottom: 14px; line-height: 1.35; }
-.feature-text p { font-size: 17px; color: #3D4A5C; line-height: 1.7; }
-.feature-highlight { display: inline-block; background: #EAF4FF; color: #0055CC; font-size: 15px; font-weight: 700; padding: 6px 14px; border-radius: 100px; margin-bottom: 12px; }
-.benefit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-.benefit-card { border: 1.5px solid #E5E8EB; border-radius: 20px; padding: 32px; display: flex; align-items: flex-start; gap: 20px; }
-.benefit-icon { flex-shrink: 0; width: 60px; height: 60px; border-radius: 14px; background: #EAF4FF; display: flex; align-items: center; justify-content: center; font-size: 28px; }
-.benefit-card h4 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
-.benefit-card p { font-size: 15px; color: #3D4A5C; line-height: 1.65; }
-.step-section { background: #F9FAFB; }
-.step-inner { max-width: 1160px; margin: 0 auto; padding: 80px 40px; }
-.step-row { display: flex; gap: 24px; }
-.step-item { flex: 1; background: #fff; border-radius: 20px; padding: 32px 28px; text-align: center; }
-.step-badge { display: inline-block; background: #0088FF; color: #fff; font-size: 13px; font-weight: 700; padding: 4px 14px; border-radius: 100px; margin-bottom: 16px; }
-.step-item h4 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-.step-item p { font-size: 15px; color: #64748B; line-height: 1.6; }
-.feature-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.feature-item { background: #F9FAFB; border-radius: 16px; padding: 28px 24px; }
-.feature-item h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
-.feature-item p { font-size: 15px; color: #64748B; line-height: 1.6; }
-.faq-section { max-width: 800px; margin: 0 auto; padding: 80px 40px; }
-.faq-item { border-bottom: 1px solid #E5E8EB; padding: 20px 0; cursor: pointer; }
-.faq-q { display: flex; justify-content: space-between; align-items: center; font-size: 16px; font-weight: 600; color: #191F28; }
-.faq-q::after { content: '+'; font-size: 22px; color: #94A3B8; }
-.faq-item.open .faq-q::after { content: '−'; color: #0088FF; }
-.faq-a { display: none; padding-top: 14px; font-size: 15px; color: #64748B; line-height: 1.7; }
-.faq-item.open .faq-a { display: block; }
-.cta-section { background: #191F28; padding: 80px 40px; text-align: center; }
-.cta-section h2 { font-size: 36px; font-weight: 700; color: #fff; margin-bottom: 14px; line-height: 1.35; }
-.cta-section p { font-size: 17px; color: rgba(255,255,255,0.65); margin-bottom: 32px; }
-.cta-btns { display: flex; gap: 12px; justify-content: center; }
-.btn-cta-p { padding: 13px 28px; background: #0088FF; color: #fff; border-radius: 12px; font-size: 15px; font-weight: 700; text-decoration: none; }
-.btn-cta-s { padding: 13px 28px; background: #fff; color: #191F28; border-radius: 12px; font-size: 15px; font-weight: 700; text-decoration: none; }
-footer { background: #fff; border-top: 1px solid #E5E8EB; padding: 60px 40px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 40px; }
-footer h4 { font-size: 15px; font-weight: 700; margin-bottom: 16px; }
-footer ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-footer ul li a { text-decoration: none; color: #64748B; font-size: 14px; }
-.footer-bottom { background: #fff; border-top: 1px solid #E5E8EB; padding: 20px 40px; font-size: 13px; color: #94A3B8; }
-@media (max-width: 768px) {
-  .hero h1 { font-size: 32px; }
-  .problem-grid { grid-template-columns: 1fr 1fr; }
-  .benefit-grid { grid-template-columns: 1fr; }
-  .feature-row, .feature-row.reverse { flex-direction: column; }
-  .feature-img { width: 100%; }
-  .feature-list { grid-template-columns: 1fr; }
-  .step-row { flex-direction: column; }
-  footer { grid-template-columns: 1fr 1fr; }
-  .nav-links { display: none; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>전자계약 이싸인온│프랜차이즈·가맹점 계약</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', sans-serif; color: #191F28; background: #fff; }
+    .nav { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid #E5E8EB; height: 88px; display: flex; align-items: center; padding: 0 40px; justify-content: space-between; }
+    .nav-logo { font-size: 22px; font-weight: 700; color: #0088FF; text-decoration: none; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { text-decoration: none; color: #191F28; font-size: 15px; }
+    .nav-actions { display: flex; gap: 12px; }
+    .btn-dark { padding: 10px 20px; border-radius: 8px; background: #191F28; color: #fff; font-size: 14px; font-weight: 700; text-decoration: none; }
+    .btn-blue { padding: 10px 20px; border-radius: 8px; background: #0088FF; color: #fff; font-size: 14px; font-weight: 700; text-decoration: none; }
+    .hero { background: linear-gradient(180deg, #EAF4FF 0%, #fff 100%); text-align: center; padding: 100px 40px 80px; }
+    .hero h1 { font-size: 52px; font-weight: 700; line-height: 1.25; color: #191F28; margin-bottom: 20px; }
+    .hero p { font-size: 18px; line-height: 1.7; color: #3D4A5C; margin-bottom: 32px; }
+    .btn-cta-hero { display: inline-block; padding: 14px 32px; background: #0088FF; color: #fff; border-radius: 12px; font-size: 16px; font-weight: 700; text-decoration: none; }
+    .btn-cta-hero:hover { background: #0076E6; }
+    .section { max-width: 1160px; margin: 0 auto; padding: 80px 40px; }
+    .section-title { font-size: 36px; font-weight: 700; text-align: center; margin-bottom: 48px; line-height: 1.35; }
+    .section-subtitle { font-size: 17px; color: #3D4A5C; text-align: center; margin-top: -30px; margin-bottom: 48px; line-height: 1.7; }
+    .problem-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .problem-card { background: #F9FAFB; border-radius: 16px; padding: 28px 24px; }
+    .problem-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; color: #191F28; }
+    .problem-card p { font-size: 15px; color: #64748B; line-height: 1.6; }
+    .feature-section { background: #F9FAFB; }
+    .feature-inner { max-width: 1160px; margin: 0 auto; padding: 80px 40px; }
+    .feature-row { display: flex; align-items: center; gap: 60px; margin-bottom: 60px; }
+    .feature-row:last-child { margin-bottom: 0; }
+    .feature-row.reverse { flex-direction: row-reverse; }
+    .feature-img { flex-shrink: 0; width: 360px; height: 300px; border-radius: 24px; overflow: hidden; background: #EAF4FF; display: flex; align-items: center; justify-content: center; font-size: 80px; }
+    .feature-text h3 { font-size: 28px; font-weight: 700; margin-bottom: 14px; line-height: 1.35; }
+    .feature-text p { font-size: 17px; color: #3D4A5C; line-height: 1.7; }
+    .feature-highlight { display: inline-block; background: #EAF4FF; color: #0055CC; font-size: 15px; font-weight: 700; padding: 6px 14px; border-radius: 100px; margin-bottom: 12px; }
+    .benefit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .benefit-card { border: 1.5px solid #E5E8EB; border-radius: 20px; padding: 32px 32px 28px; display: flex; align-items: flex-start; gap: 24px; }
+    .benefit-icon { flex-shrink: 0; width: 64px; height: 64px; border-radius: 16px; background: #EAF4FF; display: flex; align-items: center; justify-content: center; font-size: 32px; }
+    .benefit-card h4 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+    .benefit-card p { font-size: 15px; color: #3D4A5C; line-height: 1.65; }
+    .step-section { background: #F9FAFB; }
+    .step-inner { max-width: 1160px; margin: 0 auto; padding: 80px 40px; }
+    .step-row { display: flex; gap: 24px; }
+    .step-item { flex: 1; background: #fff; border-radius: 20px; padding: 32px 28px; text-align: center; }
+    .step-badge { display: inline-block; background: #0088FF; color: #fff; font-size: 13px; font-weight: 700; padding: 4px 14px; border-radius: 100px; margin-bottom: 16px; }
+    .step-item h4 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .step-item p { font-size: 15px; color: #64748B; line-height: 1.6; }
+    .feature-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .feature-item { background: #F9FAFB; border-radius: 16px; padding: 28px 24px; }
+    .feature-item h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+    .feature-item p { font-size: 15px; color: #64748B; line-height: 1.6; }
+    .tag-section { text-align: center; }
+    .tag-grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 32px; }
+    .tag { background: #F9FAFB; border: 1.5px solid #E5E8EB; border-radius: 100px; padding: 10px 20px; font-size: 15px; font-weight: 600; color: #191F28; }
+    .faq-section { max-width: 800px; margin: 0 auto; padding: 80px 40px; }
+    .faq-item { border-bottom: 1px solid #E5E8EB; padding: 20px 0; cursor: pointer; }
+    .faq-q { display: flex; justify-content: space-between; align-items: center; font-size: 16px; font-weight: 600; color: #191F28; }
+    .faq-q::after { content: '+'; font-size: 22px; color: #94A3B8; }
+    .faq-item.open .faq-q::after { content: '−'; color: #0088FF; }
+    .faq-a { display: none; padding-top: 14px; font-size: 15px; color: #64748B; line-height: 1.7; }
+    .faq-item.open .faq-a { display: block; }
+    .cta-section { background: #191F28; padding: 80px 40px; text-align: center; }
+    .cta-section h2 { font-size: 36px; font-weight: 700; color: #fff; margin-bottom: 14px; line-height: 1.35; }
+    .cta-section p { font-size: 17px; color: rgba(255,255,255,0.65); margin-bottom: 32px; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; }
+    .btn-cta-p { padding: 13px 28px; background: #0088FF; color: #fff; border-radius: 12px; font-size: 15px; font-weight: 700; text-decoration: none; }
+    .btn-cta-s { padding: 13px 28px; background: #fff; color: #191F28; border-radius: 12px; font-size: 15px; font-weight: 700; text-decoration: none; }
+    footer { background: #fff; border-top: 1px solid #E5E8EB; padding: 60px 40px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 40px; }
+    footer h4 { font-size: 15px; font-weight: 700; margin-bottom: 16px; }
+    footer ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    footer ul li a { text-decoration: none; color: #64748B; font-size: 14px; }
+    .footer-bottom { background: #fff; border-top: 1px solid #E5E8EB; padding: 20px 40px; font-size: 13px; color: #94A3B8; }
+    .back-link { display: block; color: #0088FF; font-size: 14px; font-weight: 600; text-decoration: none; padding: 20px 40px 0; max-width: 1160px; margin: 0 auto; }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+      .problem-grid { grid-template-columns: 1fr 1fr; }
+      .benefit-grid { grid-template-columns: 1fr; }
+      .feature-row, .feature-row.reverse { flex-direction: column; }
+      .feature-img { width: 100%; }
+      .feature-list { grid-template-columns: 1fr; }
+      .step-row { flex-direction: column; }
+      footer { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
 </head>
 <body>
 <nav class="nav">
@@ -100,102 +102,105 @@ footer ul li a { text-decoration: none; color: #64748B; font-size: 14px; }
 
 <section class="hero">
   <h1>지점이 늘어날수록<br>계약 관리는 더 간단하게</h1>
-  <p>가맹본부와 가맹점 간 계약서, 동의서, 확인서를 이싸인온으로 빠르게 발송하고<br>전국 가맹점 현황을 한눈에 관리하세요.</p>
+  <p>전국 가맹점 계약부터 정기 갱신·추가 약정까지,<br>이싸인온으로 본사와 가맹점 계약을 체계적으로 관리하세요.</p>
   <a href="#" class="btn-cta-hero">무료로 시작하기</a>
 </section>
-<section class="section">
-  <h2 class="section-title">프랜차이즈 계약 관리의 어려움</h2>
+
+<div class="section">
+  <h2 class="section-title">프랜차이즈 본사의 계약 고충</h2>
   <div class="problem-grid">
-    <div class="problem-card"><h4>🗺️ 전국 가맹점 관리</h4><p>전국에 흩어진 가맹점과 계약서를 주고받기가 물리적으로 어렵습니다.</p></div>
-    <div class="problem-card"><h4>📋 다양한 계약 유형</h4><p>가맹 계약서, 정보공개서, 부속 약정서 등 서류가 많고 복잡합니다.</p></div>
-    <div class="problem-card"><h4>⏰ 계약 처리 지연</h4><p>우편이나 방문으로 계약을 처리하면 시간이 오래 걸려 개점이 지연됩니다.</p></div>
-    <div class="problem-card"><h4>🔍 계약 현황 파악</h4><p>가맹점별 계약 상태와 갱신 시기를 체계적으로 파악하기 어렵습니다.</p></div>
+    <div class="problem-card"><h4>📍 전국 지점 방문 불가</h4><p>전국 수십·수백 개 가맹점에 계약서를 전달하고 회수하는 데 많은 비용과 시간이 듭니다.</p></div>
+    <div class="problem-card"><h4>📋 계약 갱신 주기 관리</h4><p>가맹점마다 계약 만료 시점이 달라 갱신 시점을 놓치는 경우가 발생합니다.</p></div>
+    <div class="problem-card"><h4>📂 계약서 버전 관리</h4><p>계약서 양식이 수시로 업데이트되어 구버전 계약서가 사용되는 오류가 생깁니다.</p></div>
+    <div class="problem-card"><h4>📊 계약 현황 파악 어려움</h4><p>가맹점별 계약 상태를 한눈에 파악하기 어려워 관리 공백이 발생합니다.</p></div>
   </div>
-</section>
+</div>
+
 <section class="feature-section">
   <div class="feature-inner">
-    <h2 class="section-title">이싸인온으로 가맹점 계약을 체계적으로</h2>
     <div class="feature-row">
       <div class="feature-img">🏪</div>
       <div class="feature-text">
-        <span class="feature-highlight">다지점 관리</span>
-        <h3>전국 가맹점 계약을<br>한 대시보드에서</h3>
-        <p>전국 어느 가맹점이든 계약 현황, 갱신 시기, 미서명 현황을 한 화면에서 관리할 수 있습니다. 지역별·가맹점별 필터링도 지원합니다.</p>
+        <span class="feature-highlight">지점별 계약 관리</span>
+        <h3>전국 가맹점, 지점별로 체계적 관리</h3>
+        <p>가맹점을 지역·브랜드·지점코드별로 분류해 관리합니다. 각 가맹점의 계약 체결 여부, 갱신 일정, 추가 약정 현황을 한 화면에서 파악할 수 있어 관리 누락이 사라집니다.</p>
       </div>
     </div>
     <div class="feature-row reverse">
-      <div class="feature-img">📦</div>
+      <div class="feature-img">📨</div>
       <div class="feature-text">
-        <span class="feature-highlight">서류 패키지</span>
-        <h3>가맹 계약에 필요한<br>서류를 한 번에 발송</h3>
-        <p>가맹 계약서, 정보공개서 확인증, 부속 약정서 등 여러 서류를 묶어 한 번에 발송하고 모두 서명받을 수 있습니다.</p>
+        <span class="feature-highlight">일괄 발송</span>
+        <h3>수백 개 가맹점에 동시 발송</h3>
+        <p>계약 갱신·정책 변경 동의서·추가 약정서를 전국 가맹점에 동시에 발송합니다. 가맹점주는 스마트폰으로 내용 확인 후 서명만 하면 되어 본사의 업무 부담이 크게 줄어듭니다.</p>
       </div>
     </div>
     <div class="feature-row">
       <div class="feature-img">📊</div>
       <div class="feature-text">
         <span class="feature-highlight">계약 현황 대시보드</span>
-        <h3>계약 진행 상태를<br>실시간으로 파악</h3>
-        <p>가맹점이 계약서를 열람했는지, 서명했는지 실시간으로 확인할 수 있습니다. 미서명 가맹점에 재알림을 자동으로 발송합니다.</p>
+        <h3>실시간 계약 현황을 대시보드로</h3>
+        <p>전체 가맹점 계약 현황, 미서명 지점, 만료 예정 계약을 대시보드에서 실시간으로 모니터링합니다. 계약 만료 30일 전 자동 알림으로 갱신 시점을 절대 놓치지 않습니다.</p>
       </div>
     </div>
   </div>
 </section>
-<section class="section">
-  <h2 class="section-title">핵심 기능</h2>
+
+<div class="section">
+  <h2 class="section-title">프랜차이즈 본사 도입 효과</h2>
   <div class="benefit-grid">
-    <div class="benefit-card"><div class="benefit-icon">🏢</div><div><h4>가맹점별 계약 이력</h4><p>가맹점별 전체 계약 이력을 조회하고 갱신 시기를 관리하세요.</p></div></div>
-    <div class="benefit-card"><div class="benefit-icon">📋</div><div><h4>표준 계약서 템플릿</h4><p>가맹 계약서, 약정서 등 자주 사용하는 서류를 템플릿으로 관리하세요.</p></div></div>
-    <div class="benefit-card"><div class="benefit-icon">✍️</div><div><h4>다자 서명 지원</h4><p>가맹본부·가맹점주·보증인 등 여러 서명자가 순서대로 서명할 수 있습니다.</p></div></div>
-    <div class="benefit-card"><div class="benefit-icon">🔒</div><div><h4>법적 효력 보장</h4><p>전자서명법 기반의 전자서명으로 법적 분쟁에도 안심하세요.</p></div></div>
+    <div class="benefit-card"><div class="benefit-icon">🚀</div><div><h4>신규 가맹 계약 속도 향상</h4><p>신규 가맹점 계약을 당일에 완료할 수 있어 오픈 일정을 앞당길 수 있습니다.</p></div></div>
+    <div class="benefit-card"><div class="benefit-icon">📋</div><div><h4>계약서 버전 통일</h4><p>본사가 등록한 최신 계약서 양식만 사용되어 구버전 계약서 혼용 문제가 사라집니다.</p></div></div>
+    <div class="benefit-card"><div class="benefit-icon">⏰</div><div><h4>갱신 관리 자동화</h4><p>계약 만료 알림 자동 발송으로 갱신 누락 없이 가맹 관계를 유지합니다.</p></div></div>
+    <div class="benefit-card"><div class="benefit-icon">🔒</div><div><h4>법적 분쟁 대비</h4><p>서명자 인증·서명 시각이 기록된 감사 로그로 분쟁 발생 시 명확한 증거를 제시합니다.</p></div></div>
   </div>
-</section>
+</div>
+
 <section class="step-section">
   <div class="step-inner">
-    <h2 class="section-title">이용 방법</h2>
+    <h2 class="section-title">프랜차이즈 계약 관리 4단계</h2>
     <div class="step-row">
-      <div class="step-item"><span class="step-badge">Step 1</span><h4>계약서 양식 등록</h4><p>가맹 계약서 및 부속 서류를 템플릿으로 등록하세요.</p></div>
-      <div class="step-item"><span class="step-badge">Step 2</span><h4>가맹점 정보 입력</h4><p>가맹점주 정보와 계약 내용을 입력하세요.</p></div>
-      <div class="step-item"><span class="step-badge">Step 3</span><h4>서명 요청</h4><p>가맹점주에게 서명 요청을 발송합니다.</p></div>
-      <div class="step-item"><span class="step-badge">Step 4</span><h4>계약 완료·관리</h4><p>서명 완료 후 자동 보관되고 대시보드에 반영됩니다.</p></div>
+      <div class="step-item"><span class="step-badge">STEP 1</span><h4>계약서 양식 등록</h4><p>가맹 계약서·추가 약정서·정책 동의서 등 양식을 본사에서 등록합니다.</p></div>
+      <div class="step-item"><span class="step-badge">STEP 2</span><h4>가맹점 명단 관리</h4><p>전국 가맹점 정보를 지역·브랜드별로 시스템에 등록합니다.</p></div>
+      <div class="step-item"><span class="step-badge">STEP 3</span><h4>일괄 서명 요청</h4><p>선택한 가맹점 전체 또는 그룹별로 서명 요청을 동시에 발송합니다.</p></div>
+      <div class="step-item"><span class="step-badge">STEP 4</span><h4>현황 모니터링</h4><p>대시보드에서 가맹점별 서명 완료 현황을 실시간으로 확인합니다.</p></div>
     </div>
   </div>
 </section>
-<section class="section">
-  <h2 class="section-title">더 많은 기능</h2>
+
+<div class="section">
+  <h2 class="section-title">프랜차이즈 특화 기능</h2>
   <div class="feature-list">
-    <div class="feature-item"><h4>🗺️ 지역별 현황</h4><p>지역별 가맹점 계약 현황을 필터링해서 확인하세요.</p></div>
-    <div class="feature-item"><h4>📅 갱신 알림</h4><p>계약 만료 전 자동 알림으로 갱신을 놓치지 마세요.</p></div>
-    <div class="feature-item"><h4>🔗 API 연동</h4><p>기존 가맹점 관리 시스템과 API로 연동할 수 있습니다.</p></div>
-    <div class="feature-item"><h4>📊 계약 통계</h4><p>월별·지역별 계약 체결 건수 등 통계를 확인하세요.</p></div>
-    <div class="feature-item"><h4>📝 전자인감</h4><p>법인 인감 도장을 전자화해 서류에 날인할 수 있습니다.</p></div>
-    <div class="feature-item"><h4>🖨️ 일괄 다운로드</h4><p>가맹점별·기간별 계약서를 일괄로 다운로드하세요.</p></div>
+    <div class="feature-item"><h4>🗂️ 계약 유형별 분류</h4><p>신규 가맹·갱신·추가 약정·정책 동의서 등 계약 유형을 분류해 관리합니다.</p></div>
+    <div class="feature-item"><h4>📊 계약 만료 예보</h4><p>30·60·90일 단위로 만료 예정 가맹점을 필터링해 갱신 계획을 수립합니다.</p></div>
+    <div class="feature-item"><h4>🔐 권한별 접근 설정</h4><p>본사·지역 담당자·가맹점주별 접근 권한을 설정해 보안을 강화합니다.</p></div>
+    <div class="feature-item"><h4>📤 계약서 일괄 다운로드</h4><p>전국 가맹점 계약서를 ZIP 파일로 일괄 다운로드해 본사에 보관합니다.</p></div>
+    <div class="feature-item"><h4>🔔 미서명 자동 리마인더</h4><p>기한 내 미서명 가맹점에게 자동으로 리마인더 알림을 발송합니다.</p></div>
+    <div class="feature-item"><h4>📱 가맹점주 모바일 서명</h4><p>가맹점주가 스마트폰으로 어디서나 계약서를 확인하고 서명합니다.</p></div>
   </div>
-</section>
-<section class="faq-section">
+</div>
+
+<div class="faq-section">
   <h2 class="section-title">자주 묻는 질문</h2>
-  <div class="faq-item"><div class="faq-q">가맹 계약서에 공정거래위원회 표준 양식을 사용할 수 있나요?</div><div class="faq-a">네, 공정거래위원회 표준 가맹 계약서 양식을 PDF로 업로드하면 그대로 사용할 수 있습니다.</div></div>
-  <div class="faq-item"><div class="faq-q">가맹점주가 계약서 검토 후 수정을 요청할 수 있나요?</div><div class="faq-a">서명 전 단계에서 거절 또는 의견 전달이 가능합니다. 본부에서 수정 후 재발송할 수 있습니다.</div></div>
-  <div class="faq-item"><div class="faq-q">보증인도 전자서명이 가능한가요?</div><div class="faq-a">네, 다자 서명 기능으로 가맹점주와 보증인이 순서대로 서명할 수 있습니다.</div></div>
-  <div class="faq-item"><div class="faq-q">가맹점 수가 수백 개인 경우도 관리 가능한가요?</div><div class="faq-a">네, 대형 프랜차이즈의 수백~수천 개 가맹점도 효율적으로 관리할 수 있습니다. 엔터프라이즈 요금제로 문의해주세요.</div></div>
-</section>
+  <div class="faq-item"><div class="faq-q">가맹사업법상 전자 가맹 계약서가 유효한가요?</div><div class="faq-a">가맹사업거래의 공정화에 관한 법률에 따라 가맹 계약서는 서면 교부가 원칙이지만, 전자문서 및 전자거래 기본법에 따라 전자적 형태로도 서면 요건을 충족할 수 있습니다. 전자서명이 적용된 계약서는 법적 효력이 인정됩니다.</div></div>
+  <div class="faq-item"><div class="faq-q">가맹점마다 계약 조건이 다를 경우 어떻게 처리하나요?</div><div class="faq-a">이싸인온은 개별 발송 시 계약 조건(로열티·보증금·영업 지역 등)을 가맹점별로 다르게 설정해 발송할 수 있습니다. 공통 양식에 개별 변수를 적용하는 방식으로 처리됩니다.</div></div>
+  <div class="faq-item"><div class="faq-q">수백 개 가맹점을 관리해도 느리지 않나요?</div><div class="faq-a">이싸인온은 대규모 가맹 네트워크 관리에 최적화되어 있습니다. 1,000개 이상의 가맹점도 빠르게 검색·관리할 수 있으며, 대시보드는 실시간으로 업데이트됩니다.</div></div>
+  <div class="faq-item"><div class="faq-q">기존 종이 계약서도 디지털화할 수 있나요?</div><div class="faq-a">네, 기존 종이 계약서를 스캔해 이싸인온에 업로드하면 디지털 보관이 가능합니다. 기존 계약서와 신규 전자 계약서를 통합 관리할 수 있습니다.</div></div>
+</div>
+
 <section class="cta-section">
-  <h2>전국 가맹점 계약, 이제 한 곳에서 관리하세요</h2>
-  <p>14일 무료 체험, 신용카드 불필요</p>
+  <h2>전국 가맹점 계약 관리,<br>이싸인온 하나로 해결하세요</h2>
+  <p>지점이 늘어날수록 강력해지는 이싸인온으로 가맹 계약을 체계적으로 관리하세요.</p>
   <div class="cta-btns">
     <a href="#" class="btn-cta-p">무료로 시작하기</a>
-    <a href="#" class="btn-cta-s">도입 문의 ↗</a>
+    <a href="#" class="btn-cta-s">도입 문의하기</a>
   </div>
 </section>
 
 <script>
-document.querySelectorAll('.faq-item').forEach(function(item){
-  item.addEventListener('click', function(){
-    this.classList.toggle('open');
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', () => item.classList.toggle('open'));
   });
-});
 </script>
-
 <footer>
   <div><h4>서비스</h4><ul><li><a href="#">주요 기능</a></li><li><a href="#">API 서비스</a></li><li><a href="#">구축형 모델</a></li><li><a href="#">보안·법적 효력</a></li></ul></div>
   <div><h4>고객 사례</h4><ul><li><a href="#">이용 고객사</a></li><li><a href="#">이싸인온 후기</a></li><li><a href="index.html">업무별 활용</a></li></ul></div>
