@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>단기 근로계약 | eSignon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans KR', sans-serif; color: #191F28; background: #fff; }
+.nav { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid #E5E8EB; height: 88px; display: flex; align-items: center; padding: 0 40px; justify-content: space-between; }
+.nav-logo { font-size: 22px; font-weight: 700; color: #0088FF; text-decoration: none; }
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a { text-decoration: none; color: #191F28; font-size: 15px; }
+.nav-actions { display: flex; gap: 12px; }
+.btn-dark { padding: 10px 20px; border-radius: 8px; background: #191F28; color: #fff; font-size: 14px; font-weight: 700; text-decoration: none; }
+.btn-blue { padding: 10px 20px; border-radius: 8px; background: #0088FF; color: #fff; font-size: 14px; font-weight: 700; text-decoration: none; }
+.back-link { display: block; color: #0088FF; font-size: 14px; font-weight: 600; text-decoration: none; padding: 20px 40px 0; }
+.hero { background: linear-gradient(180deg, #EAF4FF 0%, #fff 100%); text-align: center; padding: 100px 40px 80px; }
+.hero h1 { font-size: 52px; font-weight: 700; line-height: 1.25; color: #191F28; margin-bottom: 20px; }
+.hero p { font-size: 18px; line-height: 1.7; color: #3D4A5C; margin-bottom: 32px; }
+.btn-cta-hero { display: inline-block; padding: 14px 32px; background: #0088FF; color: #fff; border-radius: 12px; font-size: 16px; font-weight: 700; text-decoration: none; }
+.btn-cta-hero:hover { background: #0076E6; }
+.section { max-width: 1160px; margin: 0 auto; padding: 80px 40px; }
+.section-title { font-size: 36px; font-weight: 700; text-align: center; margin-bottom: 48px; line-height: 1.35; }
+.section-subtitle { font-size: 17px; color: #3D4A5C; text-align: center; margin-top: -30px; margin-bottom: 48px; line-height: 1.7; }
+.problem-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.problem-card { background: #F9FAFB; border-radius: 16px; padding: 28px 24px; }
+.problem-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; color: #191F28; }
+.problem-card p { font-size: 15px; color: #64748B; line-height: 1.6; }
+.feature-section { background: #F9FAFB; }
+.feature-inner { max-width: 1160px; margin: 0 auto; padding: 80px 40px; }
+.feature-row { display: flex; align-items: center; gap: 60px; margin-bottom: 60px; }
+.feature-row:last-child { margin-bottom: 0; }
+.feature-row.reverse { flex-direction: row-reverse; }
+.feature-img { flex-shrink: 0; width: 360px; height: 300px; border-radius: 24px; background: #EAF4FF; display: flex; align-items: center; justify-content: center; font-size: 80px; }
+.feature-text h3 { font-size: 28px; font-weight: 700; margin-bottom: 14px; line-height: 1.35; }
+.feature-text p { font-size: 17px; color: #3D4A5C; line-height: 1.7; }
+.feature-highlight { display: inline-block; background: #EAF4FF; color: #0055CC; font-size: 15px; font-weight: 700; padding: 6px 14px; border-radius: 100px; margin-bottom: 12px; }
+.benefit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.benefit-card { border: 1.5px solid #E5E8EB; border-radius: 20px; padding: 32px; display: flex; align-items: flex-start; gap: 20px; }
+.benefit-icon { flex-shrink: 0; width: 60px; height: 60px; border-radius: 14px; background: #EAF4FF; display: flex; align-items: center; justify-content: center; font-size: 28px; }
+.benefit-card h4 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+.benefit-card p { font-size: 15px; color: #3D4A5C; line-height: 1.65; }
+.step-section { background: #F9FAFB; }
+.step-inner { max-width: 1160px; margin: 0 auto; padding: 80px 40px; }
+.step-row { display: flex; gap: 24px; }
+.step-item { flex: 1; background: #fff; border-radius: 20px; padding: 32px 28px; text-align: center; }
+.step-badge { display: inline-block; background: #0088FF; color: #fff; font-size: 13px; font-weight: 700; padding: 4px 14px; border-radius: 100px; margin-bottom: 16px; }
+.step-item h4 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.step-item p { font-size: 15px; color: #64748B; line-height: 1.6; }
+.feature-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.feature-item { background: #F9FAFB; border-radius: 16px; padding: 28px 24px; }
+.feature-item h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+.feature-item p { font-size: 15px; color: #64748B; line-height: 1.6; }
+.faq-section { max-width: 800px; margin: 0 auto; padding: 80px 40px; }
+.faq-item { border-bottom: 1px solid #E5E8EB; padding: 20px 0; cursor: pointer; }
+.faq-q { display: flex; justify-content: space-between; align-items: center; font-size: 16px; font-weight: 600; color: #191F28; }
+.faq-q::after { content: '+'; font-size: 22px; color: #94A3B8; }
+.faq-item.open .faq-q::after { content: '−'; color: #0088FF; }
+.faq-a { display: none; padding-top: 14px; font-size: 15px; color: #64748B; line-height: 1.7; }
+.faq-item.open .faq-a { display: block; }
+.cta-section { background: #191F28; padding: 80px 40px; text-align: center; }
+.cta-section h2 { font-size: 36px; font-weight: 700; color: #fff; margin-bottom: 14px; line-height: 1.35; }
+.cta-section p { font-size: 17px; color: rgba(255,255,255,0.65); margin-bottom: 32px; }
+.cta-btns { display: flex; gap: 12px; justify-content: center; }
+.btn-cta-p { padding: 13px 28px; background: #0088FF; color: #fff; border-radius: 12px; font-size: 15px; font-weight: 700; text-decoration: none; }
+.btn-cta-s { padding: 13px 28px; background: #fff; color: #191F28; border-radius: 12px; font-size: 15px; font-weight: 700; text-decoration: none; }
+footer { background: #fff; border-top: 1px solid #E5E8EB; padding: 60px 40px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 40px; }
+footer h4 { font-size: 15px; font-weight: 700; margin-bottom: 16px; }
+footer ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+footer ul li a { text-decoration: none; color: #64748B; font-size: 14px; }
+.footer-bottom { background: #fff; border-top: 1px solid #E5E8EB; padding: 20px 40px; font-size: 13px; color: #94A3B8; }
+@media (max-width: 768px) {
+  .hero h1 { font-size: 32px; }
+  .problem-grid { grid-template-columns: 1fr 1fr; }
+  .benefit-grid { grid-template-columns: 1fr; }
+  .feature-row, .feature-row.reverse { flex-direction: column; }
+  .feature-img { width: 100%; }
+  .feature-list { grid-template-columns: 1fr; }
+  .step-row { flex-direction: column; }
+  footer { grid-template-columns: 1fr 1fr; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html" class="nav-logo">eSignon</a>
+  <ul class="nav-links">
+    <li><a href="#">서비스 ▾</a></li><li><a href="#">고객 사례 ▾</a></li><li><a href="#">프로모션 ▾</a></li><li><a href="#">요금 안내</a></li><li><a href="#">블로그</a></li><li><a href="#">고객 지원 ▾</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="#" class="btn-dark">로그인</a>
+    <a href="#" class="btn-blue">무료 가입</a>
+  </div>
+</nav>
+<a href="index.html" class="back-link">← 업무별 활용 방법으로 돌아가기</a>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>단기 근로계약<br>반복될수록 간편하게</h1>
+  <p>수백 건의 근로계약을 일일이 출력하고 날인받는 시대는 끝났습니다.<br>이싸인온으로 대량 발송부터 비대면 서명, 문서 보관까지 한 번에 해결하세요.</p>
+  <a href="#" class="btn-cta-hero">무료로 시작하기</a>
+</section>
+
+<!-- 문제점 -->
+<section class="section">
+  <h2 class="section-title">이런 불편함, 겪고 계신가요?</h2>
+  <div class="problem-grid">
+    <div class="problem-card"><h4>📋 반복 출력·서명</h4><p>매번 계약서를 출력하고 서명을 받으러 다니느라 하루가 다 갑니다.</p></div>
+    <div class="problem-card"><h4>📦 보관 공간 부족</h4><p>종이 계약서가 쌓여 보관 공간이 부족하고 분실 위험도 높습니다.</p></div>
+    <div class="problem-card"><h4>⏰ 서명 회수 지연</h4><p>근로자가 서명을 미루거나 분실하면 계약 처리가 지연됩니다.</p></div>
+    <div class="problem-card"><h4>🔍 계약 현황 파악 어려움</h4><p>누가 서명했고 누가 안 했는지 한눈에 파악하기 힘듭니다.</p></div>
+  </div>
+</section>
+
+<!-- 주요 기능 -->
+<section class="feature-section">
+  <div class="feature-inner">
+    <h2 class="section-title">이싸인온으로 이렇게 달라집니다</h2>
+    <div class="feature-row">
+      <div class="feature-img">📨</div>
+      <div class="feature-text">
+        <span class="feature-highlight">대량 발송</span>
+        <h3>수백 명에게 계약서를<br>한 번에 발송</h3>
+        <p>엑셀로 수신자 명단을 업로드하면 수백 건의 계약서를 한 번에 발송할 수 있습니다. 개별 입력 없이 대량 처리로 업무 시간을 획기적으로 줄이세요.</p>
+      </div>
+    </div>
+    <div class="feature-row reverse">
+      <div class="feature-img">📱</div>
+      <div class="feature-text">
+        <span class="feature-highlight">모바일 서명</span>
+        <h3>근로자는 스마트폰으로<br>언제 어디서나 서명</h3>
+        <p>근로자가 카카오톡이나 문자로 받은 링크를 클릭하면 스마트폰에서 바로 계약서를 확인하고 서명할 수 있습니다. 앱 설치 없이 간편하게 이용 가능합니다.</p>
+      </div>
+    </div>
+    <div class="feature-row">
+      <div class="feature-img">🗂️</div>
+      <div class="feature-text">
+        <span class="feature-highlight">자동 보관</span>
+        <h3>서명 완료 즉시<br>자동으로 안전하게 보관</h3>
+        <p>서명이 완료된 계약서는 클라우드에 자동 저장됩니다. 언제든 검색·다운로드할 수 있고, 계약 만료 알림도 자동으로 받을 수 있습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 핵심 기능 -->
+<section class="section">
+  <h2 class="section-title">핵심 기능 한눈에 보기</h2>
+  <div class="benefit-grid">
+    <div class="benefit-card"><div class="benefit-icon">📄</div><div><h4>계약서 템플릿 관리</h4><p>자주 쓰는 계약서를 템플릿으로 저장해두고 필요할 때마다 바로 불러서 발송하세요.</p></div></div>
+    <div class="benefit-card"><div class="benefit-icon">✅</div><div><h4>실시간 서명 현황</h4><p>누가 서명했고 누가 아직인지 대시보드에서 실시간으로 확인할 수 있습니다.</p></div></div>
+    <div class="benefit-card"><div class="benefit-icon">🔔</div><div><h4>자동 서명 독촉</h4><p>미서명자에게 자동으로 알림을 보내 서명을 독촉할 수 있습니다.</p></div></div>
+    <div class="benefit-card"><div class="benefit-icon">🔒</div><div><h4>법적 효력 보장</h4><p>이싸인온의 전자서명은 전자서명법에 따라 법적 효력을 가집니다.</p></div></div>
+  </div>
+</section>
+
+<!-- 이용 절차 -->
+<section class="step-section">
+  <div class="step-inner">
+    <h2 class="section-title">이용 방법</h2>
+    <div class="step-row">
+      <div class="step-item"><span class="step-badge">Step 1</span><h4>템플릿 등록</h4><p>근로계약서 양식을 업로드하거나 기본 제공 템플릿을 사용하세요.</p></div>
+      <div class="step-item"><span class="step-badge">Step 2</span><h4>수신자 입력</h4><p>근로자 이름, 연락처를 입력하거나 엑셀로 일괄 업로드하세요.</p></div>
+      <div class="step-item"><span class="step-badge">Step 3</span><h4>서명 요청</h4><p>카카오톡 또는 문자로 서명 요청 링크를 발송합니다.</p></div>
+      <div class="step-item"><span class="step-badge">Step 4</span><h4>완료 확인</h4><p>서명 완료 알림을 받고 계약서를 바로 다운로드하세요.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 세부 기능 -->
+<section class="section">
+  <h2 class="section-title">더 많은 기능</h2>
+  <div class="feature-list">
+    <div class="feature-item"><h4>📊 통계 리포트</h4><p>월별 계약 건수, 서명 소요 시간 등 업무 효율 지표를 확인하세요.</p></div>
+    <div class="feature-item"><h4>🖨️ PDF 내보내기</h4><p>완료된 계약서를 PDF로 내보내 필요한 곳에 제출하세요.</p></div>
+    <div class="feature-item"><h4>👤 다중 서명자</h4><p>사업주·근로자 양측 모두 서명이 필요한 계약도 순서대로 처리됩니다.</p></div>
+    <div class="feature-item"><h4>🔐 본인 확인</h4><p>휴대폰 인증으로 서명자 본인을 확인해 위변조를 방지합니다.</p></div>
+    <div class="feature-item"><h4>📅 계약 만료 알림</h4><p>계약 종료일 전 자동 알림으로 갱신을 놓치지 마세요.</p></div>
+    <div class="feature-item"><h4>🔗 API 연동</h4><p>기존 HR 시스템과 API로 연동해 계약 프로세스를 자동화하세요.</p></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <h2 class="section-title">자주 묻는 질문</h2>
+  <div class="faq-item"><div class="faq-q">전자 근로계약서도 법적 효력이 있나요?</div><div class="faq-a">네, 이싸인온의 전자서명은 전자서명법에 근거하여 법적 효력을 가집니다. 근로기준법에서도 전자적 방식의 근로계약서 작성을 허용하고 있어 종이 계약서와 동일한 효력을 갖습니다.</div></div>
+  <div class="faq-item"><div class="faq-q">근로자가 스마트폰이 없어도 서명할 수 있나요?</div><div class="faq-a">PC에서도 이메일 링크를 통해 서명할 수 있습니다. 인터넷 환경만 있으면 기기 종류에 상관없이 서명이 가능합니다.</div></div>
+  <div class="faq-item"><div class="faq-q">한 번에 몇 명까지 발송할 수 있나요?</div><div class="faq-a">요금제에 따라 차이가 있지만, 엔터프라이즈 플랜의 경우 제한 없이 대량 발송이 가능합니다. 수천 건도 한 번에 처리할 수 있습니다.</div></div>
+  <div class="faq-item"><div class="faq-q">계약서 보관 기간은 얼마나 되나요?</div><div class="faq-a">기본 5년간 클라우드에 안전하게 보관됩니다. 별도 설정 시 보관 기간을 연장할 수 있으며, 언제든지 다운로드하여 보관할 수도 있습니다.</div></div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>지금 바로 무료로 시작해보세요</h2>
+  <p>14일 무료 체험, 신용카드 불필요</p>
+  <div class="cta-btns">
+    <a href="#" class="btn-cta-p">무료로 시작하기</a>
+    <a href="#" class="btn-cta-s">도입 문의 ↗</a>
+  </div>
+</section>
+
+<script>
+document.querySelectorAll('.faq-item').forEach(function(item){
+  item.addEventListener('click', function(){
+    this.classList.toggle('open');
+  });
+});
+</script>
+
+<footer>
+  <div><h4>서비스</h4><ul><li><a href="#">주요 기능</a></li><li><a href="#">API 서비스</a></li><li><a href="#">구축형 모델</a></li><li><a href="#">보안·법적 효력</a></li></ul></div>
+  <div><h4>고객 사례</h4><ul><li><a href="#">이용 고객사</a></li><li><a href="#">이싸인온 후기</a></li><li><a href="index.html">업무별 활용</a></li></ul></div>
+  <div><h4>이용 요금</h4><ul><li><a href="#">이용 요금</a></li><li><a href="#">프로모션</a></li><li><a href="#">환승 이벤트</a></li></ul></div>
+  <div><h4>고객 지원</h4><ul><li><a href="#">도입 문의</a></li><li><a href="#">자주 묻는 질문</a></li><li><a href="#">공지사항</a></li><li><a href="#">도움말</a></li></ul></div>
+  <div><h4>인사이트</h4><ul><li><a href="#">블로그</a></li><li><a href="#">뉴스레터 구독</a></li></ul></div>
+</footer>
+<div class="footer-bottom">
+  <p>(주) 제이씨원 | 서울특별시 금천구 디지털로 178, 퍼블릭가산 B동 917, 918호</p>
+  <p>사업자등록번호 120-86-66862 | 대표자 신종호 | Copyrightⓒ JC1 Corporation. All Rights Reserved.</p>
+</div>
+</body>
+</html>
