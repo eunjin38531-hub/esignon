@@ -3,214 +3,675 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>전자계약 이싸인온│단기 근로계약</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>전자계약 이싸인온│단기 근로계약서 예약전송</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Noto Sans KR', sans-serif; color: #191F28; background: #fff; }
-    .nav { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid #E5E8EB; height: 88px; display: flex; align-items: center; padding: 0 40px; justify-content: space-between; }
-    .nav-logo { font-size: 22px; font-weight: 700; color: #0088FF; text-decoration: none; }
-    .nav-links { display: flex; gap: 28px; list-style: none; }
-    .nav-links a { text-decoration: none; color: #191F28; font-size: 15px; }
-    .nav-actions { display: flex; gap: 12px; }
-    .btn-dark { padding: 10px 20px; border-radius: 8px; background: #191F28; color: #fff; font-size: 14px; font-weight: 700; text-decoration: none; }
-    .btn-blue { padding: 10px 20px; border-radius: 8px; background: #0088FF; color: #fff; font-size: 14px; font-weight: 700; text-decoration: none; }
-    .hero { background: linear-gradient(180deg, #EAF4FF 0%, #fff 100%); text-align: center; padding: 100px 40px 80px; }
-    .hero h1 { font-size: 52px; font-weight: 700; line-height: 1.25; color: #191F28; margin-bottom: 20px; }
-    .hero p { font-size: 18px; line-height: 1.7; color: #3D4A5C; margin-bottom: 32px; }
-    .btn-cta-hero { display: inline-block; padding: 14px 32px; background: #0088FF; color: #fff; border-radius: 12px; font-size: 16px; font-weight: 700; text-decoration: none; }
-    .btn-cta-hero:hover { background: #0076E6; }
-    .section { max-width: 1160px; margin: 0 auto; padding: 80px 40px; }
-    .section-title { font-size: 36px; font-weight: 700; text-align: center; margin-bottom: 48px; line-height: 1.35; }
-    .section-subtitle { font-size: 17px; color: #3D4A5C; text-align: center; margin-top: -30px; margin-bottom: 48px; line-height: 1.7; }
-    .problem-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-    .problem-card { background: #F9FAFB; border-radius: 16px; padding: 28px 24px; }
-    .problem-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; color: #191F28; }
-    .problem-card p { font-size: 15px; color: #64748B; line-height: 1.6; }
-    .feature-section { background: #F9FAFB; }
-    .feature-inner { max-width: 1160px; margin: 0 auto; padding: 80px 40px; }
-    .feature-row { display: flex; align-items: center; gap: 60px; margin-bottom: 60px; }
-    .feature-row:last-child { margin-bottom: 0; }
-    .feature-row.reverse { flex-direction: row-reverse; }
-    .feature-img { flex-shrink: 0; width: 360px; height: 300px; border-radius: 24px; overflow: hidden; background: #EAF4FF; display: flex; align-items: center; justify-content: center; font-size: 80px; }
-    .feature-text h3 { font-size: 28px; font-weight: 700; margin-bottom: 14px; line-height: 1.35; }
-    .feature-text p { font-size: 17px; color: #3D4A5C; line-height: 1.7; }
-    .feature-highlight { display: inline-block; background: #EAF4FF; color: #0055CC; font-size: 15px; font-weight: 700; padding: 6px 14px; border-radius: 100px; margin-bottom: 12px; }
-    .benefit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-    .benefit-card { border: 1.5px solid #E5E8EB; border-radius: 20px; padding: 32px 32px 28px; display: flex; align-items: flex-start; gap: 24px; }
-    .benefit-icon { flex-shrink: 0; width: 64px; height: 64px; border-radius: 16px; background: #EAF4FF; display: flex; align-items: center; justify-content: center; font-size: 32px; }
-    .benefit-card h4 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
-    .benefit-card p { font-size: 15px; color: #3D4A5C; line-height: 1.65; }
-    .step-section { background: #F9FAFB; }
-    .step-inner { max-width: 1160px; margin: 0 auto; padding: 80px 40px; }
-    .step-row { display: flex; gap: 24px; }
-    .step-item { flex: 1; background: #fff; border-radius: 20px; padding: 32px 28px; text-align: center; }
-    .step-badge { display: inline-block; background: #0088FF; color: #fff; font-size: 13px; font-weight: 700; padding: 4px 14px; border-radius: 100px; margin-bottom: 16px; }
-    .step-item h4 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-    .step-item p { font-size: 15px; color: #64748B; line-height: 1.6; }
-    .feature-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .feature-item { background: #F9FAFB; border-radius: 16px; padding: 28px 24px; }
-    .feature-item h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
-    .feature-item p { font-size: 15px; color: #64748B; line-height: 1.6; }
-    .tag-section { text-align: center; }
-    .tag-grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 32px; }
-    .tag { background: #F9FAFB; border: 1.5px solid #E5E8EB; border-radius: 100px; padding: 10px 20px; font-size: 15px; font-weight: 600; color: #191F28; }
-    .faq-section { max-width: 800px; margin: 0 auto; padding: 80px 40px; }
-    .faq-item { border-bottom: 1px solid #E5E8EB; padding: 20px 0; cursor: pointer; }
-    .faq-q { display: flex; justify-content: space-between; align-items: center; font-size: 16px; font-weight: 600; color: #191F28; }
-    .faq-q::after { content: '+'; font-size: 22px; color: #94A3B8; }
-    .faq-item.open .faq-q::after { content: '−'; color: #0088FF; }
-    .faq-a { display: none; padding-top: 14px; font-size: 15px; color: #64748B; line-height: 1.7; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      color: #191F28;
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ───────────── NAV ───────────── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #fff;
+      border-bottom: 1px solid #E5E8EB;
+      height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+    }
+    .nav-logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0088FF;
+      text-decoration: none;
+      font-style: italic;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #191F28;
+      font-size: 15px;
+      font-weight: 500;
+    }
+    .nav-actions { display: flex; gap: 10px; align-items: center; }
+    .btn-login {
+      padding: 10px 22px;
+      border-radius: 8px;
+      background: #191F28;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .btn-signup {
+      padding: 10px 22px;
+      border-radius: 8px;
+      background: #0088FF;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    /* ───────────── HERO ───────────── */
+    .hero {
+      background: linear-gradient(rgba(0, 136, 255, 0.14) 0%, #fff 100%);
+      text-align: center;
+      padding: 100px 40px 90px;
+    }
+    .hero h1 {
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #191F28;
+      margin-bottom: 24px;
+    }
+    .hero p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #4B5563;
+      margin-bottom: 36px;
+    }
+    .btn-hero-cta {
+      display: inline-block;
+      padding: 16px 40px;
+      background: #0088FF;
+      color: #fff;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-hero-cta:hover { background: #006fcc; }
+
+    /* ───────────── PROBLEM SECTION ───────────── */
+    .problem-section {
+      background: #fff;
+      padding: 100px 40px 80px;
+      text-align: center;
+    }
+    .section-title {
+      font-size: 40px;
+      font-weight: 800;
+      line-height: 1.25;
+      color: #191F28;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 17px;
+      color: #64748B;
+      line-height: 1.6;
+      margin-bottom: 60px;
+    }
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 1160px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .problem-card { padding: 0; }
+    .icon-box {
+      width: 52px;
+      height: 52px;
+      background: #EAF4FF;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 22px;
+    }
+    .problem-card h4 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #191F28;
+    }
+    .problem-card p {
+      font-size: 15px;
+      color: #64748B;
+      line-height: 1.6;
+    }
+
+    /* ───────────── FEATURE SECTION ───────────── */
+    .feature-section {
+      background: #F9FAFB;
+      padding: 100px 40px;
+    }
+    .feature-section .section-title { text-align: center; }
+    .feature-section .section-sub { text-align: center; }
+    .feature-wrap {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .feature-card {
+      background: #fff;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 30px 30px 20px;
+      gap: 24px;
+    }
+    .feature-card-text { flex: 1; }
+    .feature-card-text h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #191F28;
+    }
+    .feature-card-text p {
+      font-size: 16px;
+      color: #4B5563;
+      line-height: 1.65;
+    }
+    .feature-stat {
+      margin-top: 16px;
+      padding: 14px 18px;
+      background: #EAF4FF;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #0055CC;
+      line-height: 1.6;
+    }
+    .feature-stat strong { font-weight: 800; }
+    .feature-card-img {
+      flex-shrink: 0;
+      width: 200px;
+      height: 200px;
+      background: #EAF4FF;
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .feature-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 10px;
+    }
+    .feature-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    /* ───────────── FLOW SECTION ───────────── */
+    .flow-section {
+      background: #fff;
+      padding: 100px 40px;
+      text-align: center;
+    }
+    .flow-wrap {
+      max-width: 1160px;
+      margin: 60px auto 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0;
+    }
+    .flow-item {
+      flex: 1;
+      background: #fff;
+      border: 1.5px solid #E5E8EB;
+      border-radius: 16px;
+      padding: 28px 20px 24px;
+      text-align: center;
+    }
+    .flow-icon {
+      font-size: 36px;
+      margin-bottom: 14px;
+      color: #0088FF;
+    }
+    .flow-item h4 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: #191F28;
+    }
+    .flow-item ul {
+      list-style: none;
+      text-align: left;
+      padding: 0 4px;
+    }
+    .flow-item ul li {
+      font-size: 14px;
+      color: #64748B;
+      padding: 2px 0;
+    }
+    .flow-item ul li::before {
+      content: '• ';
+      color: #0088FF;
+    }
+    .flow-arrow {
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      padding-top: 28px;
+      color: #CBD5E1;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    /* ───────────── FAQ ───────────── */
+    .faq-section {
+      background: #fff;
+      padding: 100px 40px;
+    }
+    .faq-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .faq-section .section-title { text-align: center; margin-bottom: 48px; }
+    .faq-item { border-bottom: 1px solid #E5E8EB; }
+    .faq-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 4px;
+      font-size: 17px;
+      font-weight: 600;
+      color: #191F28;
+      cursor: pointer;
+      user-select: none;
+    }
+    .faq-q-icon {
+      font-size: 22px;
+      color: #94A3B8;
+      font-weight: 400;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .faq-item.open .faq-q-icon {
+      transform: rotate(45deg);
+      color: #0088FF;
+    }
+    .faq-a {
+      display: none;
+      padding: 0 4px 24px;
+      font-size: 15px;
+      color: #64748B;
+      line-height: 1.75;
+    }
     .faq-item.open .faq-a { display: block; }
-    .cta-section { background: #191F28; padding: 80px 40px; text-align: center; }
-    .cta-section h2 { font-size: 36px; font-weight: 700; color: #fff; margin-bottom: 14px; line-height: 1.35; }
-    .cta-section p { font-size: 17px; color: rgba(255,255,255,0.65); margin-bottom: 32px; }
+
+    /* ───────────── CTA ───────────── */
+    .cta-section {
+      background: #191F28;
+      padding: 80px 40px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: 40px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .cta-section p {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 36px;
+    }
     .cta-btns { display: flex; gap: 12px; justify-content: center; }
-    .btn-cta-p { padding: 13px 28px; background: #0088FF; color: #fff; border-radius: 12px; font-size: 15px; font-weight: 700; text-decoration: none; }
-    .btn-cta-s { padding: 13px 28px; background: #fff; color: #191F28; border-radius: 12px; font-size: 15px; font-weight: 700; text-decoration: none; }
-    footer { background: #fff; border-top: 1px solid #E5E8EB; padding: 60px 40px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 40px; }
-    footer h4 { font-size: 15px; font-weight: 700; margin-bottom: 16px; }
-    footer ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    footer ul li a { text-decoration: none; color: #64748B; font-size: 14px; }
-    .footer-bottom { background: #fff; border-top: 1px solid #E5E8EB; padding: 20px 40px; font-size: 13px; color: #94A3B8; }
-    .back-link { display: block; color: #0088FF; font-size: 14px; font-weight: 600; text-decoration: none; padding: 20px 40px 0; max-width: 1160px; margin: 0 auto; }
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 32px; }
+    .btn-cta-blue {
+      padding: 14px 30px;
+      background: #0088FF;
+      color: #fff;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .btn-cta-white {
+      padding: 14px 30px;
+      background: #fff;
+      color: #191F28;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ───────────── FOOTER ───────────── */
+    .footer-top {
+      background: #fff;
+      border-top: 1px solid #E5E8EB;
+      padding: 48px 40px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+    .footer-cs { min-width: 220px; }
+    .footer-cs h3 { font-size: 16px; font-weight: 700; margin-bottom: 12px; }
+    .footer-cs p { font-size: 14px; color: #64748B; line-height: 1.7; }
+    .footer-cs a {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #0088FF;
+      text-decoration: underline;
+    }
+    .footer-divider {
+      width: 1px;
+      background: #E5E8EB;
+      align-self: stretch;
+      margin: 0 16px;
+    }
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 32px;
+      flex: 1;
+    }
+    .footer-col h4 { font-size: 14px; font-weight: 700; margin-bottom: 14px; color: #191F28; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { text-decoration: none; color: #64748B; font-size: 13px; }
+    .footer-bottom {
+      background: #fff;
+      border-top: 1px solid #E5E8EB;
+      padding: 20px 40px;
+      font-size: 12px;
+      color: #94A3B8;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    /* ───────────── RESPONSIVE ───────────── */
+    @media (max-width: 900px) {
+      .hero h1 { font-size: 36px; }
       .problem-grid { grid-template-columns: 1fr 1fr; }
-      .benefit-grid { grid-template-columns: 1fr; }
-      .feature-row, .feature-row.reverse { flex-direction: column; }
-      .feature-img { width: 100%; }
-      .feature-list { grid-template-columns: 1fr; }
-      .step-row { flex-direction: column; }
-      footer { grid-template-columns: 1fr 1fr; }
+      .feature-row-2 { grid-template-columns: 1fr; }
+      .feature-card { flex-direction: column; }
+      .feature-card-img { width: 100%; height: 180px; }
+      .flow-wrap { flex-direction: column; gap: 12px; }
+      .flow-arrow { transform: rotate(90deg); padding: 0; align-self: center; }
       .nav-links { display: none; }
+      .footer-links { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
 <body>
+
 <nav class="nav">
   <a href="index.html" class="nav-logo">eSignon</a>
   <ul class="nav-links">
-    <li><a href="#">서비스 ▾</a></li><li><a href="#">고객 사례 ▾</a></li><li><a href="#">프로모션 ▾</a></li><li><a href="#">요금 안내</a></li><li><a href="#">블로그</a></li><li><a href="#">고객 지원 ▾</a></li>
+    <li><a href="#">서비스 ▾</a></li>
+    <li><a href="#">고객 사례 ▾</a></li>
+    <li><a href="#">프로모션 ▾</a></li>
+    <li><a href="#">요금 안내</a></li>
+    <li><a href="#">블로그</a></li>
+    <li><a href="#">고객 지원 ▾</a></li>
   </ul>
   <div class="nav-actions">
-    <a href="#" class="btn-dark">로그인</a>
-    <a href="#" class="btn-blue">무료 가입</a>
+    <a href="#" class="btn-login">로그인</a>
+    <a href="#" class="btn-signup">무료 가입</a>
   </div>
 </nav>
-<a href="index.html" class="back-link">← 업무별 활용 방법으로 돌아가기</a>
 
 <section class="hero">
   <h1>단기 근로계약<br>반복될수록 간편하게</h1>
-  <p>아르바이트·계절 근로·단기 파견까지, 반복되는 근로계약을<br>이싸인온 하나로 빠르고 정확하게 처리하세요.</p>
-  <a href="#" class="btn-cta-hero">무료로 시작하기</a>
+  <p>반복되는 근로계약 작성과 대량 계약, 비대면 서명,<br>문서 보관까지 이싸인온으로 한 번에 관리할 수 있습니다.</p>
+  <a href="#" class="btn-hero-cta">도입 문의하기</a>
 </section>
 
-<div class="section">
-  <h2 class="section-title">이런 어려움, 겪어보셨나요?</h2>
+<section class="problem-section">
+  <h2 class="section-title">반복되는 단기 근로계약<br>불필요한 시간이 누적됩니다.</h2>
+  <p class="section-sub">계약서 서명 시간보다,<br>반복되는 출력·전달·회수·스캔·보관 시간이 더 오래 걸립니다.</p>
   <div class="problem-grid">
-    <div class="problem-card"><h4>📋 반복 작성의 번거로움</h4><p>매번 동일한 양식을 출력해 수기로 작성하느라 시간이 낭비됩니다.</p></div>
-    <div class="problem-card"><h4>📬 서명 수거의 어려움</h4><p>근무지가 다른 직원들에게 일일이 서류를 보내고 받아야 합니다.</p></div>
-    <div class="problem-card"><h4>🗂️ 서류 분실·관리 부담</h4><p>종이 계약서가 쌓여 보관·검색이 어렵고 분실 위험도 높습니다.</p></div>
-    <div class="problem-card"><h4>⚖️ 법적 효력 우려</h4><p>전자서명의 법적 효력을 확신하지 못해 종이 계약을 고집하게 됩니다.</p></div>
+    <div class="problem-card">
+      <div class="icon-box">🖨️</div>
+      <h4>출력 비용</h4>
+      <p>계약 인원 수만큼 출력, 재출력, 서식 오류 대응이 반복됩니다.</p>
+    </div>
+    <div class="problem-card">
+      <div class="icon-box">📲</div>
+      <h4>전달 비용</h4>
+      <p>현장 배포, 문자 안내, 담당자 전달 과정에서 시간이 소요됩니다.</p>
+    </div>
+    <div class="problem-card">
+      <div class="icon-box">🗂️</div>
+      <h4>정리 비용</h4>
+      <p>스캔, 변경, 분류 등 단순하지만 오래 걸리는 업무가 쌓입니다.</p>
+    </div>
+    <div class="problem-card">
+      <div class="icon-box">📞</div>
+      <h4>추적 비용</h4>
+      <p>미완료 확인, 재전송, 현장 확인까지 응대 업무가 반복됩니다.</p>
+    </div>
   </div>
-</div>
+</section>
 
 <section class="feature-section">
-  <div class="feature-inner">
-    <div class="feature-row">
-      <div class="feature-img">📨</div>
-      <div class="feature-text">
-        <span class="feature-highlight">일괄 발송</span>
-        <h3>수십 명 근로계약, 한 번에 발송</h3>
-        <p>미리 만들어 둔 근로계약서 템플릿에 직원 명단을 업로드하면, 수십 명에게 동시에 서명 요청이 발송됩니다. 이름·근무기간·급여 등 개인별 항목은 자동으로 채워지므로 오류 없이 빠르게 처리됩니다.</p>
+  <h2 class="section-title">단기 근로계약<br>이싸인온으로 편해지세요.</h2>
+  <p class="section-sub" style="margin-top:16px;">대량 발송부터 모바일 서명, 예약 전송, 문서 보관까지<br>반복되는 근로계약 업무를 더 간편하게 관리할 수 있습니다.</p>
+
+  <div class="feature-wrap">
+    <div class="feature-card">
+      <div class="feature-card-text">
+        <h2>모바일 서명</h2>
+        <p>현장 근로자도 PC 없이 스마트폰으로 즉시 계약서를 확인하고 서명할 수 있습니다.</p>
+        <div class="feature-stat">
+          주 100명 × 52주 = <strong>5,200건</strong><br>
+          1건당 5분만 줄여도 연간 <strong>약 433시간을 절감</strong>할 수 있습니다.
+        </div>
+      </div>
+      <div class="feature-card-img">
+        <img src="https://framerusercontent.com/images/7mxLBJSvWXBBK50NNz454fISts.png" alt="모바일 서명">
       </div>
     </div>
-    <div class="feature-row reverse">
-      <div class="feature-img">📱</div>
-      <div class="feature-text">
-        <span class="feature-highlight">모바일 서명</span>
-        <h3>근로자가 언제 어디서나 서명</h3>
-        <p>카카오톡·문자·이메일로 발송된 링크를 클릭하면 별도 앱 설치 없이 스마트폰에서 바로 계약서를 확인하고 서명할 수 있습니다. 현장 근무자도 간편하게 처리됩니다.</p>
+
+    <div class="feature-row-2">
+      <div class="feature-card">
+        <div class="feature-card-text">
+          <h2>대량 전송</h2>
+          <p>엑셀 명단을 기반으로 여러 근로자에게 근로계약서를 한 번에 발송할 수 있습니다.</p>
+        </div>
+        <div class="feature-card-img">
+          <img src="https://framerusercontent.com/images/Gx9cWSocugLTdnw6T2wr1hbl0.png" alt="대량 전송">
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-text">
+          <h2>예약 전송</h2>
+          <p>반복되는 계약서 발송을 원하는 시간에 맞춰 예약해둘 수 있습니다.</p>
+        </div>
+        <div class="feature-card-img">
+          <img src="https://framerusercontent.com/images/rIMEOcHvJfiPMr31Q4KNOWanL8.png" alt="예약 전송">
+        </div>
       </div>
     </div>
-    <div class="feature-row">
-      <div class="feature-img">🗄️</div>
-      <div class="feature-text">
-        <span class="feature-highlight">자동 저장·관리</span>
-        <h3>완료된 계약서, 자동으로 정리</h3>
-        <p>서명이 완료된 계약서는 클라우드에 자동 저장됩니다. 이름·날짜·계약 유형별로 검색할 수 있어 필요할 때 즉시 찾을 수 있으며, 노동청 제출 시에도 PDF 원본을 바로 제출할 수 있습니다.</p>
+
+    <div class="feature-row-2">
+      <div class="feature-card">
+        <div class="feature-card-text">
+          <h2>주소록</h2>
+          <p>자주 발송하는 근로자 정보를 등록해두고, 반복 발송 시 빠르게 불러올 수 있습니다.</p>
+        </div>
+        <div class="feature-card-img">
+          <img src="https://framerusercontent.com/images/kFJBUZy6jo491YfbiM4ZGOrRXvg.png" alt="주소록">
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-text">
+          <h2>완료 현황 확인</h2>
+          <p>서명 완료자와 미완료자를 한눈에 확인하고, 필요한 대상에게 다시 안내할 수 있습니다.</p>
+        </div>
+        <div class="feature-card-img">
+          <img src="https://framerusercontent.com/images/3S2nNzjR63S6AKTEwOwSlDDevo.png" alt="완료 현황 확인">
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="section">
-  <h2 class="section-title">이싸인온 도입 효과</h2>
-  <div class="benefit-grid">
-    <div class="benefit-card"><div class="benefit-icon">⚡</div><div><h4>계약 처리 시간 80% 단축</h4><p>출력·날인·수거·스캔 과정이 사라지고, 발송부터 완료까지 평균 10분 이내에 처리됩니다.</p></div></div>
-    <div class="benefit-card"><div class="benefit-icon">💰</div><div><h4>인쇄·보관 비용 절감</h4><p>종이·잉크·보관함 비용이 필요 없습니다. 전자 보관으로 공간과 비용 모두 절약됩니다.</p></div></div>
-    <div class="benefit-card"><div class="benefit-icon">🔒</div><div><h4>법적 효력 완벽 보장</h4><p>전자서명법 기반의 공인전자서명으로 종이 계약과 동일한 법적 효력을 가집니다.</p></div></div>
-    <div class="benefit-card"><div class="benefit-icon">📊</div><div><h4>실시간 서명 현황 파악</h4><p>누가 서명했고 누가 아직인지 대시보드에서 한눈에 확인하고, 미완료자에게 재촉 알림을 보낼 수 있습니다.</p></div></div>
-  </div>
-</div>
+<section class="flow-section">
+  <h2 class="section-title">입사부터 퇴사까지<br>단기 근로계약, 한 번에 관리해 보세요.</h2>
+  <p class="section-sub">근로계약서뿐 아니라 입사 서류, 동의서, 퇴사 문서, 반복 갱신 계약까지<br>실제 담당자의 업무 흐름에 맞춰 관리할 수 있습니다.</p>
 
-<section class="step-section">
-  <div class="step-inner">
-    <h2 class="section-title">이렇게 간단합니다</h2>
-    <div class="step-row">
-      <div class="step-item"><span class="step-badge">STEP 1</span><h4>템플릿 등록</h4><p>기존 근로계약서를 업로드하거나 제공되는 기본 양식을 선택합니다.</p></div>
-      <div class="step-item"><span class="step-badge">STEP 2</span><h4>수신자 입력</h4><p>직원 이름·연락처를 입력하거나 엑셀 파일로 일괄 등록합니다.</p></div>
-      <div class="step-item"><span class="step-badge">STEP 3</span><h4>서명 요청</h4><p>카카오톡·문자·이메일로 서명 요청이 자동 발송됩니다.</p></div>
-      <div class="step-item"><span class="step-badge">STEP 4</span><h4>완료 확인</h4><p>서명 완료 시 알림을 받고, 계약서는 클라우드에 자동 저장됩니다.</p></div>
+  <div class="flow-wrap">
+    <div class="flow-item">
+      <div class="flow-icon">👤</div>
+      <h4>입사</h4>
+      <ul>
+        <li>근로계약서</li>
+        <li>보안서약서</li>
+      </ul>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-item">
+      <div class="flow-icon">📋</div>
+      <h4>근무</h4>
+      <ul>
+        <li>각종 동의서</li>
+        <li>합의서</li>
+      </ul>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-item">
+      <div class="flow-icon">🔄</div>
+      <h4>변동</h4>
+      <ul>
+        <li>근무조건 변경</li>
+        <li>고용 확인서</li>
+      </ul>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-item">
+      <div class="flow-icon">📄</div>
+      <h4>퇴사</h4>
+      <ul>
+        <li>사직서</li>
+        <li>퇴직 서약서</li>
+      </ul>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-item">
+      <div class="flow-icon">↩️</div>
+      <h4>갱신</h4>
+      <ul>
+        <li>근로계약서</li>
+        <li>보안서약서</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<div class="section">
-  <h2 class="section-title">주요 기능 한눈에 보기</h2>
-  <div class="feature-list">
-    <div class="feature-item"><h4>📄 맞춤형 계약서 템플릿</h4><p>근로 유형에 맞게 아르바이트·일용직·단기계약직 등 다양한 양식을 등록해 재사용하세요.</p></div>
-    <div class="feature-item"><h4>📧 다채널 발송</h4><p>카카오톡 알림톡, SMS, 이메일 중 원하는 채널로 서명 요청을 발송할 수 있습니다.</p></div>
-    <div class="feature-item"><h4>🔔 미서명자 자동 알림</h4><p>기한 내 서명하지 않은 인원에게 자동으로 리마인더를 발송합니다.</p></div>
-    <div class="feature-item"><h4>📱 앱 없는 모바일 서명</h4><p>수신자는 별도 앱 설치 없이 링크 클릭만으로 서명을 완료할 수 있습니다.</p></div>
-    <div class="feature-item"><h4>🔍 계약서 검색·다운로드</h4><p>이름·날짜·상태별로 계약서를 검색하고 PDF로 즉시 다운로드할 수 있습니다.</p></div>
-    <div class="feature-item"><h4>🛡️ 전자서명 법적 효력</h4><p>전자서명법 제3조에 따라 종이 계약서와 동일한 법적 효력이 인정됩니다.</p></div>
+<section class="faq-section">
+  <div class="faq-inner">
+    <h2 class="section-title">자주 묻는 질문</h2>
+    <div class="faq-item">
+      <div class="faq-q">전자근로계약서, 법적 효력이 정말 있나요?<span class="faq-q-icon">+</span></div>
+      <div class="faq-a">네, 전자서명법에 따라 법적 효력이 있습니다. 서명 시점의 타임스탬프와 이력이 기록되어 법적 분쟁 시 증거로 활용할 수 있습니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">수백 명의 직원에게 계약서를 한 번에 보낼 수 있나요?<span class="faq-q-icon">+</span></div>
+      <div class="faq-a">네, 엑셀 명단을 업로드하면 수백 명에게 계약서를 일괄 발송할 수 있습니다. 발송 완료 후 진행 현황을 실시간으로 확인할 수 있습니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">직원이 꼭 회원가입을 하거나 앱을 설치해야 하나요?<span class="faq-q-icon">+</span></div>
+      <div class="faq-a">아니요, 링크를 클릭하면 바로 계약서를 확인하고 서명할 수 있습니다. 별도의 앱 설치나 회원가입이 필요하지 않습니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">단기 근로계약서도 전자서명으로 체결할 수 있나요?<span class="faq-q-icon">+</span></div>
+      <div class="faq-a">네, 단기·반복 계약서를 포함한 모든 형태의 근로계약서를 전자서명으로 체결할 수 있습니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">연봉 정보 등 민감한 데이터의 보안이 걱정돼요.<span class="faq-q-icon">+</span></div>
+      <div class="faq-a">이싸인온은 SSL 암호화 통신과 데이터 보안 정책을 준수하며, 계약 당사자 외에는 문서 내용에 접근할 수 없습니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">직원이 서명을 거부하거나 수정을 요청하면 어떻게 하나요?<span class="faq-q-icon">+</span></div>
+      <div class="faq-a">서명 거부 또는 수정 요청 시 계약을 취소하고 수정된 문서를 재발송할 수 있습니다. 이 과정도 시스템 내에서 관리됩니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">매주 반복되는 근로계약도 편하게 관리할 수 있나요?<span class="faq-q-icon">+</span></div>
+      <div class="faq-a">예약 전송 기능을 활용하면 매주 지정한 시간에 자동으로 계약서가 발송되어 반복 작업을 줄일 수 있습니다.</div>
+    </div>
   </div>
-</div>
-
-<div class="faq-section">
-  <h2 class="section-title">자주 묻는 질문</h2>
-  <div class="faq-item"><div class="faq-q">전자 근로계약서가 노동법상 효력이 있나요?</div><div class="faq-a">네, 전자서명법 제3조에 따라 공인전자서명이 적용된 전자계약서는 종이 근로계약서와 동일한 법적 효력을 가집니다. 고용노동부도 전자 근로계약서 사용을 공식 인정하고 있습니다.</div></div>
-  <div class="faq-item"><div class="faq-q">근로자가 스마트폰을 잘 못 다루는 경우 어떻게 하나요?</div><div class="faq-a">이싸인온은 별도 앱 설치 없이 카카오톡 또는 문자 링크만으로 서명이 가능합니다. UI가 직관적이어서 스마트폰 사용에 익숙하지 않은 분들도 쉽게 서명하실 수 있습니다.</div></div>
-  <div class="faq-item"><div class="faq-q">수십 명에게 한 번에 발송할 수 있나요?</div><div class="faq-a">네, 엑셀 파일로 수신자 목록을 업로드하면 개인별 정보가 자동 입력된 계약서가 동시에 발송됩니다. 100명 이상도 한 번에 처리 가능합니다.</div></div>
-  <div class="faq-item"><div class="faq-q">완료된 계약서를 노동청에 제출할 수 있나요?</div><div class="faq-a">서명이 완료된 계약서는 법적 효력이 있는 PDF 형태로 저장됩니다. 노동청 제출이나 분쟁 발생 시 증빙 자료로 즉시 활용할 수 있습니다.</div></div>
-</div>
+</section>
 
 <section class="cta-section">
-  <h2>단기 근로계약, 이제 이싸인온으로<br>빠르게 처리하세요</h2>
-  <p>지금 바로 무료로 시작하고, 반복 계약 업무의 번거로움을 없애세요.</p>
+  <h2>반복되는 계약 업무<br>이싸인온으로 줄여보세요</h2>
+  <p>대량 계약부터 비대면 서명, 문서 보관까지 한 번에 관리할 수 있습니다.</p>
   <div class="cta-btns">
-    <a href="#" class="btn-cta-p">무료로 시작하기</a>
-    <a href="#" class="btn-cta-s">도입 문의하기</a>
+    <a href="#" class="btn-cta-blue">요금제 보기</a>
+    <a href="#" class="btn-cta-white">도입 문의 ↗</a>
   </div>
 </section>
+
+<div class="footer-top">
+  <div class="footer-cs">
+    <h3>이싸인온 고객센터</h3>
+    <p>운영 시간 : 평일 오전 9시 ~ 오후 5시<br>
+       점심 시간 : 오전 11시 30분 ~ 오후 1시<br>
+       유선 전화 : 02-3444-4660</p>
+    <a href="#">채팅상담 바로가기</a>
+  </div>
+  <div class="footer-divider"></div>
+  <div class="footer-links">
+    <div class="footer-col">
+      <h4>서비스</h4>
+      <ul><li><a href="#">주요 기능</a></li><li><a href="#">API 서비스</a></li><li><a href="#">구축형 모델</a></li><li><a href="#">보안·법적 효력</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>고객 사례</h4>
+      <ul><li><a href="#">이용 고객사</a></li><li><a href="#">이싸인온 후기</a></li><li><a href="index.html">업무별 활용</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>이용 요금</h4>
+      <ul><li><a href="#">이용 요금</a></li><li><a href="#">프로모션</a></li><li><a href="#">환승 이벤트</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>고객 지원</h4>
+      <ul><li><a href="#">도입 문의</a></li><li><a href="#">자주 묻는 질문</a></li><li><a href="#">공지사항</a></li><li><a href="#">도움말</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>인사이트</h4>
+      <ul><li><a href="#">블로그</a></li><li><a href="#">뉴스레터 구독</a></li></ul>
+    </div>
+  </div>
+</div>
+<div class="footer-bottom">
+  <p>(주) 제이씨원 | 서울특별시 금천구 디지털로 178, 퍼블릭가산 B동 917, 918호</p>
+  <p>사업자등록번호 120-86-66862 | 대표자 신종호 | 대표전화 02-3444-4660</p>
+  <p>Copyrightⓒ JC1 Corporation. All Rights Reserved. &nbsp;|&nbsp; <a href="#" style="color:#94A3B8;">개인정보처리방침</a> &nbsp;|&nbsp; <a href="#" style="color:#94A3B8;">이용약관</a></p>
+</div>
 
 <script>
   document.querySelectorAll('.faq-item').forEach(item => {
-    item.addEventListener('click', () => item.classList.toggle('open'));
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
   });
 </script>
-<footer>
-  <div><h4>서비스</h4><ul><li><a href="#">주요 기능</a></li><li><a href="#">API 서비스</a></li><li><a href="#">구축형 모델</a></li><li><a href="#">보안·법적 효력</a></li></ul></div>
-  <div><h4>고객 사례</h4><ul><li><a href="#">이용 고객사</a></li><li><a href="#">이싸인온 후기</a></li><li><a href="index.html">업무별 활용</a></li></ul></div>
-  <div><h4>이용 요금</h4><ul><li><a href="#">이용 요금</a></li><li><a href="#">프로모션</a></li><li><a href="#">환승 이벤트</a></li></ul></div>
-  <div><h4>고객 지원</h4><ul><li><a href="#">도입 문의</a></li><li><a href="#">자주 묻는 질문</a></li><li><a href="#">공지사항</a></li><li><a href="#">도움말</a></li></ul></div>
-  <div><h4>인사이트</h4><ul><li><a href="#">블로그</a></li><li><a href="#">뉴스레터 구독</a></li></ul></div>
-</footer>
-<div class="footer-bottom">
-  <p>(주) 제이씨원 | 서울특별시 금천구 디지털로 178, 퍼블릭가산 B동 917, 918호</p>
-  <p>사업자등록번호 120-86-66862 | 대표자 신종호 | Copyrightⓒ JC1 Corporation. All Rights Reserved.</p>
-</div>
+
 </body>
 </html>
