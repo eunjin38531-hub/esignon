@@ -1,89 +1,91 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>건설현장 서류 관리 | eSignon</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Noto Sans KR', sans-serif; color: #191F28; background: #fff; }
-.nav { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid #E5E8EB; height: 88px; display: flex; align-items: center; padding: 0 40px; justify-content: space-between; }
-.nav-logo { font-size: 22px; font-weight: 700; color: #0088FF; text-decoration: none; }
-.nav-links { display: flex; gap: 28px; list-style: none; }
-.nav-links a { text-decoration: none; color: #191F28; font-size: 15px; }
-.nav-actions { display: flex; gap: 12px; }
-.btn-dark { padding: 10px 20px; border-radius: 8px; background: #191F28; color: #fff; font-size: 14px; font-weight: 700; text-decoration: none; }
-.btn-blue { padding: 10px 20px; border-radius: 8px; background: #0088FF; color: #fff; font-size: 14px; font-weight: 700; text-decoration: none; }
-.back-link { display: block; color: #0088FF; font-size: 14px; font-weight: 600; text-decoration: none; padding: 20px 40px 0; }
-.hero { background: linear-gradient(180deg, #EAF4FF 0%, #fff 100%); text-align: center; padding: 100px 40px 80px; }
-.hero h1 { font-size: 52px; font-weight: 700; line-height: 1.25; color: #191F28; margin-bottom: 20px; }
-.hero p { font-size: 18px; line-height: 1.7; color: #3D4A5C; margin-bottom: 32px; }
-.btn-cta-hero { display: inline-block; padding: 14px 32px; background: #0088FF; color: #fff; border-radius: 12px; font-size: 16px; font-weight: 700; text-decoration: none; }
-.btn-cta-hero:hover { background: #0076E6; }
-.section { max-width: 1160px; margin: 0 auto; padding: 80px 40px; }
-.section-title { font-size: 36px; font-weight: 700; text-align: center; margin-bottom: 48px; line-height: 1.35; }
-.section-subtitle { font-size: 17px; color: #3D4A5C; text-align: center; margin-top: -30px; margin-bottom: 48px; line-height: 1.7; }
-.problem-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.problem-card { background: #F9FAFB; border-radius: 16px; padding: 28px 24px; }
-.problem-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; color: #191F28; }
-.problem-card p { font-size: 15px; color: #64748B; line-height: 1.6; }
-.feature-section { background: #F9FAFB; }
-.feature-inner { max-width: 1160px; margin: 0 auto; padding: 80px 40px; }
-.feature-row { display: flex; align-items: center; gap: 60px; margin-bottom: 60px; }
-.feature-row:last-child { margin-bottom: 0; }
-.feature-row.reverse { flex-direction: row-reverse; }
-.feature-img { flex-shrink: 0; width: 360px; height: 300px; border-radius: 24px; background: #EAF4FF; display: flex; align-items: center; justify-content: center; font-size: 80px; }
-.feature-text h3 { font-size: 28px; font-weight: 700; margin-bottom: 14px; line-height: 1.35; }
-.feature-text p { font-size: 17px; color: #3D4A5C; line-height: 1.7; }
-.feature-highlight { display: inline-block; background: #EAF4FF; color: #0055CC; font-size: 15px; font-weight: 700; padding: 6px 14px; border-radius: 100px; margin-bottom: 12px; }
-.benefit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-.benefit-card { border: 1.5px solid #E5E8EB; border-radius: 20px; padding: 32px; display: flex; align-items: flex-start; gap: 20px; }
-.benefit-icon { flex-shrink: 0; width: 60px; height: 60px; border-radius: 14px; background: #EAF4FF; display: flex; align-items: center; justify-content: center; font-size: 28px; }
-.benefit-card h4 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
-.benefit-card p { font-size: 15px; color: #3D4A5C; line-height: 1.65; }
-.step-section { background: #F9FAFB; }
-.step-inner { max-width: 1160px; margin: 0 auto; padding: 80px 40px; }
-.step-row { display: flex; gap: 24px; }
-.step-item { flex: 1; background: #fff; border-radius: 20px; padding: 32px 28px; text-align: center; }
-.step-badge { display: inline-block; background: #0088FF; color: #fff; font-size: 13px; font-weight: 700; padding: 4px 14px; border-radius: 100px; margin-bottom: 16px; }
-.step-item h4 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-.step-item p { font-size: 15px; color: #64748B; line-height: 1.6; }
-.feature-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.feature-item { background: #F9FAFB; border-radius: 16px; padding: 28px 24px; }
-.feature-item h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
-.feature-item p { font-size: 15px; color: #64748B; line-height: 1.6; }
-.faq-section { max-width: 800px; margin: 0 auto; padding: 80px 40px; }
-.faq-item { border-bottom: 1px solid #E5E8EB; padding: 20px 0; cursor: pointer; }
-.faq-q { display: flex; justify-content: space-between; align-items: center; font-size: 16px; font-weight: 600; color: #191F28; }
-.faq-q::after { content: '+'; font-size: 22px; color: #94A3B8; }
-.faq-item.open .faq-q::after { content: '−'; color: #0088FF; }
-.faq-a { display: none; padding-top: 14px; font-size: 15px; color: #64748B; line-height: 1.7; }
-.faq-item.open .faq-a { display: block; }
-.cta-section { background: #191F28; padding: 80px 40px; text-align: center; }
-.cta-section h2 { font-size: 36px; font-weight: 700; color: #fff; margin-bottom: 14px; line-height: 1.35; }
-.cta-section p { font-size: 17px; color: rgba(255,255,255,0.65); margin-bottom: 32px; }
-.cta-btns { display: flex; gap: 12px; justify-content: center; }
-.btn-cta-p { padding: 13px 28px; background: #0088FF; color: #fff; border-radius: 12px; font-size: 15px; font-weight: 700; text-decoration: none; }
-.btn-cta-s { padding: 13px 28px; background: #fff; color: #191F28; border-radius: 12px; font-size: 15px; font-weight: 700; text-decoration: none; }
-footer { background: #fff; border-top: 1px solid #E5E8EB; padding: 60px 40px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 40px; }
-footer h4 { font-size: 15px; font-weight: 700; margin-bottom: 16px; }
-footer ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-footer ul li a { text-decoration: none; color: #64748B; font-size: 14px; }
-.footer-bottom { background: #fff; border-top: 1px solid #E5E8EB; padding: 20px 40px; font-size: 13px; color: #94A3B8; }
-@media (max-width: 768px) {
-  .hero h1 { font-size: 32px; }
-  .problem-grid { grid-template-columns: 1fr 1fr; }
-  .benefit-grid { grid-template-columns: 1fr; }
-  .feature-row, .feature-row.reverse { flex-direction: column; }
-  .feature-img { width: 100%; }
-  .feature-list { grid-template-columns: 1fr; }
-  .step-row { flex-direction: column; }
-  footer { grid-template-columns: 1fr 1fr; }
-  .nav-links { display: none; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>전자계약 이싸인온│건설현장 서류 관리</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', sans-serif; color: #191F28; background: #fff; }
+    .nav { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid #E5E8EB; height: 88px; display: flex; align-items: center; padding: 0 40px; justify-content: space-between; }
+    .nav-logo { font-size: 22px; font-weight: 700; color: #0088FF; text-decoration: none; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { text-decoration: none; color: #191F28; font-size: 15px; }
+    .nav-actions { display: flex; gap: 12px; }
+    .btn-dark { padding: 10px 20px; border-radius: 8px; background: #191F28; color: #fff; font-size: 14px; font-weight: 700; text-decoration: none; }
+    .btn-blue { padding: 10px 20px; border-radius: 8px; background: #0088FF; color: #fff; font-size: 14px; font-weight: 700; text-decoration: none; }
+    .hero { background: linear-gradient(180deg, #EAF4FF 0%, #fff 100%); text-align: center; padding: 100px 40px 80px; }
+    .hero h1 { font-size: 52px; font-weight: 700; line-height: 1.25; color: #191F28; margin-bottom: 20px; }
+    .hero p { font-size: 18px; line-height: 1.7; color: #3D4A5C; margin-bottom: 32px; }
+    .btn-cta-hero { display: inline-block; padding: 14px 32px; background: #0088FF; color: #fff; border-radius: 12px; font-size: 16px; font-weight: 700; text-decoration: none; }
+    .btn-cta-hero:hover { background: #0076E6; }
+    .section { max-width: 1160px; margin: 0 auto; padding: 80px 40px; }
+    .section-title { font-size: 36px; font-weight: 700; text-align: center; margin-bottom: 48px; line-height: 1.35; }
+    .section-subtitle { font-size: 17px; color: #3D4A5C; text-align: center; margin-top: -30px; margin-bottom: 48px; line-height: 1.7; }
+    .problem-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .problem-card { background: #F9FAFB; border-radius: 16px; padding: 28px 24px; }
+    .problem-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; color: #191F28; }
+    .problem-card p { font-size: 15px; color: #64748B; line-height: 1.6; }
+    .feature-section { background: #F9FAFB; }
+    .feature-inner { max-width: 1160px; margin: 0 auto; padding: 80px 40px; }
+    .feature-row { display: flex; align-items: center; gap: 60px; margin-bottom: 60px; }
+    .feature-row:last-child { margin-bottom: 0; }
+    .feature-row.reverse { flex-direction: row-reverse; }
+    .feature-img { flex-shrink: 0; width: 360px; height: 300px; border-radius: 24px; overflow: hidden; background: #EAF4FF; display: flex; align-items: center; justify-content: center; font-size: 80px; }
+    .feature-text h3 { font-size: 28px; font-weight: 700; margin-bottom: 14px; line-height: 1.35; }
+    .feature-text p { font-size: 17px; color: #3D4A5C; line-height: 1.7; }
+    .feature-highlight { display: inline-block; background: #EAF4FF; color: #0055CC; font-size: 15px; font-weight: 700; padding: 6px 14px; border-radius: 100px; margin-bottom: 12px; }
+    .benefit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .benefit-card { border: 1.5px solid #E5E8EB; border-radius: 20px; padding: 32px 32px 28px; display: flex; align-items: flex-start; gap: 24px; }
+    .benefit-icon { flex-shrink: 0; width: 64px; height: 64px; border-radius: 16px; background: #EAF4FF; display: flex; align-items: center; justify-content: center; font-size: 32px; }
+    .benefit-card h4 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+    .benefit-card p { font-size: 15px; color: #3D4A5C; line-height: 1.65; }
+    .step-section { background: #F9FAFB; }
+    .step-inner { max-width: 1160px; margin: 0 auto; padding: 80px 40px; }
+    .step-row { display: flex; gap: 24px; }
+    .step-item { flex: 1; background: #fff; border-radius: 20px; padding: 32px 28px; text-align: center; }
+    .step-badge { display: inline-block; background: #0088FF; color: #fff; font-size: 13px; font-weight: 700; padding: 4px 14px; border-radius: 100px; margin-bottom: 16px; }
+    .step-item h4 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .step-item p { font-size: 15px; color: #64748B; line-height: 1.6; }
+    .feature-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .feature-item { background: #F9FAFB; border-radius: 16px; padding: 28px 24px; }
+    .feature-item h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+    .feature-item p { font-size: 15px; color: #64748B; line-height: 1.6; }
+    .tag-section { text-align: center; }
+    .tag-grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 32px; }
+    .tag { background: #F9FAFB; border: 1.5px solid #E5E8EB; border-radius: 100px; padding: 10px 20px; font-size: 15px; font-weight: 600; color: #191F28; }
+    .faq-section { max-width: 800px; margin: 0 auto; padding: 80px 40px; }
+    .faq-item { border-bottom: 1px solid #E5E8EB; padding: 20px 0; cursor: pointer; }
+    .faq-q { display: flex; justify-content: space-between; align-items: center; font-size: 16px; font-weight: 600; color: #191F28; }
+    .faq-q::after { content: '+'; font-size: 22px; color: #94A3B8; }
+    .faq-item.open .faq-q::after { content: '−'; color: #0088FF; }
+    .faq-a { display: none; padding-top: 14px; font-size: 15px; color: #64748B; line-height: 1.7; }
+    .faq-item.open .faq-a { display: block; }
+    .cta-section { background: #191F28; padding: 80px 40px; text-align: center; }
+    .cta-section h2 { font-size: 36px; font-weight: 700; color: #fff; margin-bottom: 14px; line-height: 1.35; }
+    .cta-section p { font-size: 17px; color: rgba(255,255,255,0.65); margin-bottom: 32px; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; }
+    .btn-cta-p { padding: 13px 28px; background: #0088FF; color: #fff; border-radius: 12px; font-size: 15px; font-weight: 700; text-decoration: none; }
+    .btn-cta-s { padding: 13px 28px; background: #fff; color: #191F28; border-radius: 12px; font-size: 15px; font-weight: 700; text-decoration: none; }
+    footer { background: #fff; border-top: 1px solid #E5E8EB; padding: 60px 40px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 40px; }
+    footer h4 { font-size: 15px; font-weight: 700; margin-bottom: 16px; }
+    footer ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    footer ul li a { text-decoration: none; color: #64748B; font-size: 14px; }
+    .footer-bottom { background: #fff; border-top: 1px solid #E5E8EB; padding: 20px 40px; font-size: 13px; color: #94A3B8; }
+    .back-link { display: block; color: #0088FF; font-size: 14px; font-weight: 600; text-decoration: none; padding: 20px 40px 0; max-width: 1160px; margin: 0 auto; }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+      .problem-grid { grid-template-columns: 1fr 1fr; }
+      .benefit-grid { grid-template-columns: 1fr; }
+      .feature-row, .feature-row.reverse { flex-direction: column; }
+      .feature-img { width: 100%; }
+      .feature-list { grid-template-columns: 1fr; }
+      .step-row { flex-direction: column; }
+      footer { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
 </head>
 <body>
 <nav class="nav">
@@ -99,71 +101,106 @@ footer ul li a { text-decoration: none; color: #64748B; font-size: 14px; }
 <a href="index.html" class="back-link">← 업무별 활용 방법으로 돌아가기</a>
 
 <section class="hero">
-  <h1>현장 투입 전 필수 서류<br>이싸인온으로 누락 없이 관리하세요</h1>
-  <p>근로계약서, 개인정보 동의서, 서약서, 보호구 지급 확인서 등<br>필요한 서류를 누락 없이 서명받고 관리할 수 있습니다.</p>
-  <a href="#" class="btn-cta-hero">도입 문의하기</a>
+  <h1>현장 투입 전 필수 서류<br>누락 없이 관리하기</h1>
+  <p>안전교육 확인서·작업자 동의서·하도급 계약서까지,<br>건설현장의 모든 서류를 이싸인온으로 빠짐없이 처리하세요.</p>
+  <a href="#" class="btn-cta-hero">무료로 시작하기</a>
 </section>
 
-<section class="section">
-  <h2 class="section-title">본사, 현장, 협력업체<br>모두가 더 빠르게 움직입니다.</h2>
-  <p class="section-subtitle">본사 관리팀은 현황을 확인하고, 협력 업체는 근로자 서류를 간편하게 제출할 수 있습니다.</p>
-  <div class="feature-list">
-    <div class="feature-item"><h4>🏗️ 수기 작성 → 모바일 서명</h4><p>현장 도착 후 서류 작성 방식 대신, 투입 전에 필요한 서류를 미리 받을 수 있습니다.</p></div>
-    <div class="feature-item"><h4>📋 누락 없는 서류 관리</h4><p>근로계약서, 개인정보 동의서, 서약서, 보호구 지급 확인서를 한 번에 관리합니다.</p></div>
-    <div class="feature-item"><h4>✅ 완료 현황 즉시 확인</h4><p>당일 투입 인원 중 미완료자를 실시간으로 파악하고 재전송할 수 있습니다.</p></div>
+<div class="section">
+  <h2 class="section-title">현장 관리자라면 공감하는 불편함</h2>
+  <div class="problem-grid">
+    <div class="problem-card"><h4>📋 서류 누락 사고</h4><p>투입 전 필수 서류가 빠져 현장 감사·안전점검에서 지적받는 일이 반복됩니다.</p></div>
+    <div class="problem-card"><h4>🏗️ 현장 접근의 어려움</h4><p>외진 공사 현장에서 서류를 받으려면 직접 방문하거나 우편을 기다려야 합니다.</p></div>
+    <div class="problem-card"><h4>👷 다수 근로자 관리</h4><p>투입 인원이 많아 개별 서명을 수거하는 데 많은 시간과 인력이 소모됩니다.</p></div>
+    <div class="problem-card"><h4>📁 종이 서류 분실</h4><p>습하고 먼지 많은 현장 환경에서 종이 서류가 훼손·분실되는 경우가 잦습니다.</p></div>
   </div>
-</section>
+</div>
 
 <section class="feature-section">
   <div class="feature-inner">
-    <h2 class="section-title">수기 작성과 종이 대신<br>모바일 서명으로 바꿔보세요</h2>
-    <div class="benefit-grid">
-      <div class="benefit-card" style="flex-direction:column;align-items:flex-start;">
-        <div style="width:100%;height:200px;background:#EAF4FF;border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;overflow:hidden;"><img src="https://framerusercontent.com/images/NhmsZY7wXRsyokrBHIBQwQHqGvQ.png" alt="모바일 서명" style="width:100%;height:100%;object-fit:cover;border-radius:16px;"></div>
-        <div><h4>모바일 서명</h4><p>현장 근로자가 스마트폰으로 즉시 확인하고 서명할 수 있습니다.</p></div>
+    <div class="feature-row">
+      <div class="feature-img">📲</div>
+      <div class="feature-text">
+        <span class="feature-highlight">현장 모바일 서명</span>
+        <h3>현장에서 바로, 스마트폰으로 서명</h3>
+        <p>안전모를 쓰고 현장에 있는 근로자도 문자 링크 하나로 서명할 수 있습니다. 별도 앱 설치 없이 수 초 만에 완료되어 업무 흐름을 끊지 않습니다.</p>
       </div>
-      <div class="benefit-card" style="flex-direction:column;align-items:flex-start;">
-        <div style="width:100%;height:200px;background:#EAF4FF;border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;overflow:hidden;"><img src="https://framerusercontent.com/images/BquCDiNzCDWDU6G8XZ6cKULVtc.png" alt="일괄 발송" style="width:100%;height:100%;object-fit:cover;border-radius:16px;"></div>
-        <div><h4>일괄 발송</h4><p>협력업체별, 근로자별로 필요한 서류를 한 번에 발송할 수 있습니다.</p></div>
+    </div>
+    <div class="feature-row reverse">
+      <div class="feature-img">✅</div>
+      <div class="feature-text">
+        <span class="feature-highlight">서류 체크리스트</span>
+        <h3>필수 서류 누락 없이 체크</h3>
+        <p>근로계약서·안전교육 확인서·개인정보 동의서 등 현장 투입 전 필요한 서류를 체크리스트로 구성해 놓으면, 미완료 항목을 한눈에 파악하고 즉시 요청할 수 있습니다.</p>
       </div>
-      <div class="benefit-card" style="flex-direction:column;align-items:flex-start;">
-        <div style="width:100%;height:200px;background:#EAF4FF;border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;overflow:hidden;"><img src="https://framerusercontent.com/images/9xo5IKFhXHRvKQwbo5rUFqrpQZY.png" alt="미완료 확인" style="width:100%;height:100%;object-fit:cover;border-radius:16px;"></div>
-        <div><h4>미완료 현황 확인</h4><p>서명 완료자·미완료자를 한눈에 확인하고 필요한 대상에게 다시 안내할 수 있습니다.</p></div>
-      </div>
-      <div class="benefit-card" style="flex-direction:column;align-items:flex-start;">
-        <div style="width:140px;height:140px;border-radius:16px;background:#EAF4FF;display:flex;align-items:center;justify-content:center;font-size:40px;margin-bottom:20px;">📁</div>
-        <div><h4>문서 보관</h4><p>완료된 서류를 전자로 보관하고 언제든지 검색·확인할 수 있습니다.</p></div>
+    </div>
+    <div class="feature-row">
+      <div class="feature-img">📊</div>
+      <div class="feature-text">
+        <span class="feature-highlight">실시간 현황 추적</span>
+        <h3>누가 서명했는지 실시간으로 확인</h3>
+        <p>대시보드에서 인원별 서류 완료 현황을 실시간 모니터링합니다. 서명이 완료되지 않은 근로자에게는 자동으로 재요청 알림을 보낼 수 있어 관리자 부담이 크게 줄어듭니다.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="faq-section">
-  <h2 class="section-title">자주 묻는 질문</h2>
-  <div class="faq-item"><div class="faq-q">전자계약서, 법적 효력이 정말 있나요?</div><div class="faq-a">네, 전자서명법에 따라 법적 효력이 있습니다.</div></div>
-  <div class="faq-item"><div class="faq-q">건설현장 투입 서류도 전자서명으로 받을 수 있나요?</div><div class="faq-a">네, 근로계약서, 개인정보 동의서, 서약서 등 모두 지원합니다.</div></div>
-  <div class="faq-item"><div class="faq-q">협력업체 근로자 서류도 함께 관리할 수 있나요?</div><div class="faq-a">네, 협력업체별 서류 현황을 통합 관리할 수 있습니다.</div></div>
-  <div class="faq-item"><div class="faq-q">당일 투입 인원 중 미완료자를 확인할 수 있나요?</div><div class="faq-a">실시간 완료 현황 대시보드에서 즉시 확인 가능합니다.</div></div>
-  <div class="faq-item"><div class="faq-q">현장 근로자가 PC 없이도 제출할 수 있나요?</div><div class="faq-a">네, 스마트폰으로 링크 접속 후 바로 서명할 수 있습니다.</div></div>
+<div class="section">
+  <h2 class="section-title">건설현장 도입 효과</h2>
+  <div class="benefit-grid">
+    <div class="benefit-card"><div class="benefit-icon">🦺</div><div><h4>안전 관리 강화</h4><p>안전교육 확인서 전자 서명으로 교육 이수 여부를 명확히 기록하고 사고 발생 시 증빙 자료로 활용합니다.</p></div></div>
+    <div class="benefit-card"><div class="benefit-icon">⏱️</div><div><h4>서류 처리 시간 대폭 단축</h4><p>수십 명 인원의 서류를 현장 방문 없이 하루 만에 모두 수거할 수 있습니다.</p></div></div>
+    <div class="benefit-card"><div class="benefit-icon">📂</div><div><h4>서류 분실 제로</h4><p>모든 서류가 클라우드에 저장되어 물리적 훼손·분실 걱정 없이 영구 보관됩니다.</p></div></div>
+    <div class="benefit-card"><div class="benefit-icon">🏛️</div><div><h4>감리·감사 대응 신속</h4><p>현장 감사 시 필요한 서류를 즉시 검색해 PDF로 제출할 수 있어 감리 대응이 빨라집니다.</p></div></div>
+  </div>
+</div>
+
+<section class="step-section">
+  <div class="step-inner">
+    <h2 class="section-title">4단계로 끝나는 현장 서류 관리</h2>
+    <div class="step-row">
+      <div class="step-item"><span class="step-badge">STEP 1</span><h4>서류 템플릿 등록</h4><p>안전교육 확인서, 근로계약서 등 현장 맞춤 서류를 등록합니다.</p></div>
+      <div class="step-item"><span class="step-badge">STEP 2</span><h4>근로자 명단 업로드</h4><p>투입 예정 인원 명단을 엑셀로 업로드하면 자동으로 발송 준비가 됩니다.</p></div>
+      <div class="step-item"><span class="step-badge">STEP 3</span><h4>일괄 서명 요청</h4><p>문자·카카오톡으로 서명 요청이 발송되고 근로자가 현장에서 즉시 서명합니다.</p></div>
+      <div class="step-item"><span class="step-badge">STEP 4</span><h4>완료 현황 확인</h4><p>대시보드에서 서명 완료 현황을 실시간으로 확인하고 서류를 보관합니다.</p></div>
+    </div>
+  </div>
 </section>
 
+<div class="section">
+  <h2 class="section-title">건설현장 특화 기능</h2>
+  <div class="feature-list">
+    <div class="feature-item"><h4>🏗️ 현장별 서류 관리</h4><p>공사 현장마다 별도 폴더로 서류를 관리해 여러 현장을 동시에 운영할 수 있습니다.</p></div>
+    <div class="feature-item"><h4>📋 체크리스트 기능</h4><p>투입 전 필수 서류 목록을 체크리스트로 만들어 누락 없이 수거합니다.</p></div>
+    <div class="feature-item"><h4>🔔 자동 리마인더</h4><p>서명 기한이 다가오면 미서명자에게 자동으로 알림이 발송됩니다.</p></div>
+    <div class="feature-item"><h4>📱 오프라인 환경 지원</h4><p>인터넷이 불안정한 현장에서도 캐시 기능으로 서명 완료를 지원합니다.</p></div>
+    <div class="feature-item"><h4>🔍 인원별 서류 검색</h4><p>이름·날짜·현장별로 서류를 검색해 즉시 확인하고 다운로드할 수 있습니다.</p></div>
+    <div class="feature-item"><h4>📤 일괄 다운로드</h4><p>감리·감사 시 현장 전체 서류를 ZIP 파일로 일괄 다운로드합니다.</p></div>
+  </div>
+</div>
+
+<div class="faq-section">
+  <h2 class="section-title">자주 묻는 질문</h2>
+  <div class="faq-item"><div class="faq-q">인터넷이 불안정한 현장에서도 사용할 수 있나요?</div><div class="faq-a">네, 이싸인온은 모바일 LTE/5G 환경에서도 원활하게 작동합니다. 서명 완료 후 자동 동기화되어 데이터 손실 없이 안전하게 저장됩니다.</div></div>
+  <div class="faq-item"><div class="faq-q">안전교육 확인서도 전자서명으로 대체할 수 있나요?</div><div class="faq-a">네, 산업안전보건법에 따른 안전교육 확인서도 전자서명으로 대체 가능합니다. 이싸인온의 전자서명은 법적 효력이 인정되어 감리·감사 시 동일하게 사용됩니다.</div></div>
+  <div class="faq-item"><div class="faq-q">여러 공사 현장을 동시에 관리할 수 있나요?</div><div class="faq-a">현장별 폴더 구조로 여러 공사 현장의 서류를 동시에 관리할 수 있습니다. 현장 관리자별 권한을 설정해 각 현장 담당자가 독립적으로 운영할 수 있습니다.</div></div>
+  <div class="faq-item"><div class="faq-q">외국인 근로자도 사용할 수 있나요?</div><div class="faq-a">이싸인온은 다국어 UI를 지원합니다. 영어·중국어·베트남어 등으로 인터페이스를 변경할 수 있어 외국인 근로자도 어렵지 않게 서명할 수 있습니다.</div></div>
+</div>
+
 <section class="cta-section">
-  <h2>현장 투입 전 필수 서류<br>이싸인온으로 체계적으로 관리하세요</h2>
-  <p>대면 서명, 비대면 서명, 미서명자 확인, 완료 문서 보관까지 한 번에.</p>
+  <h2>현장 서류 관리, 더 이상<br>종이로 하지 마세요</h2>
+  <p>이싸인온으로 건설현장 필수 서류를 모바일로 빠르게 수거하세요.</p>
   <div class="cta-btns">
-    <a href="#" class="btn-cta-p">요금제 보기</a>
-    <a href="#" class="btn-cta-s">도입 문의 ↗</a>
+    <a href="#" class="btn-cta-p">무료로 시작하기</a>
+    <a href="#" class="btn-cta-s">도입 문의하기</a>
   </div>
 </section>
 
 <script>
-document.querySelectorAll('.faq-item').forEach(function(item){
-  item.addEventListener('click', function(){
-    this.classList.toggle('open');
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', () => item.classList.toggle('open'));
   });
-});
 </script>
-
 <footer>
   <div><h4>서비스</h4><ul><li><a href="#">주요 기능</a></li><li><a href="#">API 서비스</a></li><li><a href="#">구축형 모델</a></li><li><a href="#">보안·법적 효력</a></li></ul></div>
   <div><h4>고객 사례</h4><ul><li><a href="#">이용 고객사</a></li><li><a href="#">이싸인온 후기</a></li><li><a href="index.html">업무별 활용</a></li></ul></div>
